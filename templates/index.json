@@ -73,6 +73,7 @@
         "women": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/collection_woman_dress_41503c70-13b4-4bef-b751-b9fb8bb1ddc6.png",
             "title": "Women",
             "text": "",
             "link_label": "Shop Women",

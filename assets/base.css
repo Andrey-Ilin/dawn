@@ -3595,3 +3595,69 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+/* ============================================
+   SwaySculpt — Custom overrides
+   ============================================ */
+
+/* Color tokens — override Liquid-generated scheme values */
+:root {
+  --color-background: 248, 246, 241;            /* Warm Parchment #F8F6F1 */
+  --color-foreground: 28, 28, 46;               /* Deep Ink #1C1C2E */
+  --color-background-contrast: 220, 218, 213;
+  --color-shadow: 28, 28, 46;
+  --color-button: 232, 160, 32;                 /* Artist Gold #E8A020 */
+  --color-button-text: 28, 28, 46;              /* Deep Ink on gold buttons */
+  --color-secondary-button: 28, 28, 46;         /* Deep Ink */
+  --color-secondary-button-text: 255, 255, 255;
+  --color-link: 144, 150, 168;                  /* Slate */
+  --color-badge-foreground: 255, 255, 255;
+  --color-badge-background: 212, 83, 58;        /* Studio Coral #D4533A */
+  --color-badge-border: 212, 83, 58;
+
+  /* Typography — override Liquid-generated font vars */
+  --font-body-family: 'Inter', sans-serif;
+  --font-body-style: normal;
+  --font-body-weight: 400;
+  --font-body-weight-bold: 700;
+  --font-heading-family: 'Playfair Display', serif;
+  --font-heading-style: normal;
+  --font-heading-weight: 700;
+}
+
+/* Header — Deep Ink background, white text */
+.header-wrapper {
+  background-color: rgb(28, 28, 46) !important;
+}
+
+.header__heading-link,
+.header__menu-item,
+.header__icon,
+.header a {
+  color: rgb(255, 255, 255);
+}
+
+/* Nav link hover — Artist Gold */
+.header__menu-item:hover > .header__active-menu-item,
+.header__menu-item:focus-visible > .header__active-menu-item,
+.header__menu-item:hover,
+.header__menu-item:focus-visible {
+  color: rgb(232, 160, 32);
+  text-decoration-color: rgb(232, 160, 32);
+}
+
+/* Logo sizing */
+.header__heading-logo {
+  max-width: 120px;
+  height: auto;
+}
+
+/* Button style — flat, editorial */
+.button,
+.btn {
+  border-radius: 4px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+}

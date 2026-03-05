@@ -8,16 +8,18 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
-            "text_alignment": "center",
-            "color_scheme": "scheme-1",
-            "link": ""
+            "text": "Free Shipping to US & Canada • Art-inspired wearable prints",
+            "link": "/collections/all"
           }
         }
       },
       "block_order": [
         "announcement-bar-0"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "scheme-4",
+        "show_line_separator": true
+      }
     },
     "header": {
       "type": "header",

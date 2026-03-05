@@ -2,9 +2,14 @@
 ######################
 .DS_Store
 .DS_Store?
+.claude
 ._*
 .Spotlight-V100
 .Trashes
 ehthumbs.db
 Thumbs.db
 .shopify
+CLAUDE.md
+SPEC.MD
+settings_data_swaysculpt_old.json
+settings_schema_swaysculpt_old.json

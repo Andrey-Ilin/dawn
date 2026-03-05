@@ -3650,6 +3650,7 @@ details-disclosure > details {
 .header__heading-logo {
   max-width: 120px;
   height: auto;
+  filter: brightness(0) invert(1);
 }
 
 /* Button style — flat, editorial */
@@ -3660,4 +3661,144 @@ details-disclosure > details {
   text-transform: uppercase;
   font-size: 13px;
   font-weight: 600;
+}
+
+/* Hero placeholder — exact Deep Ink until real photography is added */
+.banner__media {
+  background-color: rgb(28, 28, 46);
+}
+
+/* Hero heading — large editorial */
+.banner__heading {
+  font-size: clamp(42px, 7vw, 88px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* Hero subheading */
+.banner__content .banner__text {
+  font-size: clamp(16px, 2vw, 20px);
+  opacity: 0.85;
+  max-width: 520px;
+  margin-top: 16px;
+}
+
+/* Hero CTA button */
+.banner__content .button {
+  margin-top: 32px;
+}
+
+/* Category tiles — colored placeholders (no images yet) */
+.multicolumn-list__item:nth-child(1) .multicolumn-card::before {
+  content: '';
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: rgb(28, 28, 46);    /* Deep Ink — Men */
+}
+.multicolumn-list__item:nth-child(2) .multicolumn-card::before {
+  content: '';
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: rgb(212, 83, 58);   /* Studio Coral — Women */
+}
+.multicolumn-list__item:nth-child(3) .multicolumn-card::before {
+  content: '';
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: rgb(232, 160, 32);  /* Artist Gold — Kids */
+}
+.multicolumn-list__item:nth-child(4) .multicolumn-card::before {
+  content: '';
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: rgb(144, 150, 168); /* Slate — Accessories */
+}
+
+/* Tile label */
+.multicolumn-list__item .multicolumn-card__info h3,
+.multicolumn-list__item .multicolumn-card__info .h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin-top: 16px;
+}
+
+/* Tile CTA link */
+.multicolumn-list__item .multicolumn-card__info a {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(28, 28, 46);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Hover lift */
+.multicolumn-list__item {
+  transition: transform 0.2s ease;
+}
+.multicolumn-list__item:hover {
+  transform: translateY(-4px);
+}
+
+/* Product cards */
+.card-wrapper {
+  transition: transform 0.2s ease;
+}
+.card-wrapper:hover {
+  transform: translateY(-4px);
+}
+
+.card__media {
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+}
+
+.card-wrapper:hover .card__inner {
+  box-shadow: 0 8px 24px rgba(28, 28, 46, 0.12);
+}
+
+.card__heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 12px;
+  color: rgb(28, 28, 46);
+}
+
+.price__regular .price-item,
+.price__sale .price-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(28, 28, 46);
+}
+
+.price__sale .price-item--sale {
+  color: rgb(212, 83, 58);
+}
+
+/* Featured collection heading */
+.featured-collection .title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 42px);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* "View all" link */
+.featured-collection .link--text {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(28, 28, 46);
+  text-underline-offset: 4px;
 }

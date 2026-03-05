@@ -83,6 +83,7 @@
         "kids": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/collection_kids_bottoms_89345a20-c75e-4268-8d77-db0eafb81ba4.png",
             "title": "Kids",
             "text": "",
             "link_label": "Shop Kids",
@@ -92,6 +93,7 @@
         "accessories": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/collection_accesories_backpacks.png",
             "title": "Accessories",
             "text": "",
             "link_label": "Shop Accessories",

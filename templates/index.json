@@ -63,6 +63,7 @@
         "men": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/man_wearing_t_shirt.png",
             "title": "Men",
             "text": "",
             "link_label": "Shop Men",

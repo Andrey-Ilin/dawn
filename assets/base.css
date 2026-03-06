@@ -3688,34 +3688,16 @@ details-disclosure > details {
   margin-top: 32px;
 }
 
-/* Category tiles — colored placeholders (no images yet) */
-.multicolumn-list__item:nth-child(1) .multicolumn-card::before {
-  content: '';
-  display: block;
-  width: 100%;
-  aspect-ratio: 1;
-  background-color: rgb(28, 28, 46);    /* Deep Ink — Men */
+/* Category tiles — consistent square crop */
+.multicolumn-list__item .media {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
 }
-.multicolumn-list__item:nth-child(2) .multicolumn-card::before {
-  content: '';
-  display: block;
+.multicolumn-list__item .media img {
   width: 100%;
-  aspect-ratio: 1;
-  background-color: rgb(212, 83, 58);   /* Studio Coral — Women */
-}
-.multicolumn-list__item:nth-child(3) .multicolumn-card::before {
-  content: '';
-  display: block;
-  width: 100%;
-  aspect-ratio: 1;
-  background-color: rgb(232, 160, 32);  /* Artist Gold — Kids */
-}
-.multicolumn-list__item:nth-child(4) .multicolumn-card::before {
-  content: '';
-  display: block;
-  width: 100%;
-  aspect-ratio: 1;
-  background-color: rgb(144, 150, 168); /* Slate — Accessories */
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 /* Tile label */
@@ -3801,4 +3783,171 @@ details-disclosure > details {
   text-transform: uppercase;
   color: rgb(28, 28, 46);
   text-underline-offset: 4px;
+}
+
+/* Brand story — image column placeholder (remove once real image is uploaded) */
+.image-with-text__media {
+  background-color: rgb(28, 28, 46);
+  min-height: 480px;
+}
+
+@media (max-width: 749px) {
+  .image-with-text__media {
+    min-height: 260px;
+  }
+}
+
+/* Brand story — text column typography */
+.image-with-text__heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: rgb(28, 28, 46);
+}
+
+.image-with-text__content p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgb(28, 28, 46);
+  opacity: 0.8;
+  margin-bottom: 16px;
+  max-width: 520px;
+}
+
+/* Brand story — outlined secondary button */
+.image-with-text__content .button--secondary {
+  border: 2px solid rgb(28, 28, 46);
+  background: transparent;
+  color: rgb(28, 28, 46);
+  margin-top: 8px;
+}
+
+.image-with-text__content .button--secondary:hover {
+  background-color: rgb(28, 28, 46);
+  color: rgb(255, 255, 255);
+}
+
+/* Process strip — scoped to prevent leaking to category tiles multicolumn */
+#shopify-section-process-strip .multicolumn__title,
+#shopify-section-process-strip .title {
+  font-family: 'Playfair Display', serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+#shopify-section-process-strip .multicolumn-list {
+  counter-reset: process-step;
+}
+
+#shopify-section-process-strip .multicolumn-list__item {
+  counter-increment: process-step;
+}
+
+#shopify-section-process-strip .multicolumn-list__item::before {
+  content: "0" counter(process-step);
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: rgb(232, 160, 32);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+#shopify-section-process-strip .multicolumn-card__info h3,
+#shopify-section-process-strip .multicolumn-card__info .h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  margin-bottom: 12px;
+}
+
+#shopify-section-process-strip .multicolumn-card__info p,
+#shopify-section-process-strip .multicolumn-card__info .rte {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgb(255, 255, 255);
+  opacity: 0.7;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+@media (min-width: 750px) {
+  #shopify-section-process-strip .multicolumn-list__item:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* Newsletter — Studio Coral background */
+#shopify-section-newsletter {
+  background-color: rgb(212, 83, 58);
+}
+
+#shopify-section-newsletter .newsletter__wrapper {
+  background: none;
+}
+
+/* Heading */
+#shopify-section-newsletter h2,
+#shopify-section-newsletter .h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  color: rgb(255, 255, 255);
+  margin-bottom: 12px;
+}
+
+/* Subtext */
+#shopify-section-newsletter .newsletter__subheading p,
+#shopify-section-newsletter .newsletter__subheading {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  opacity: 0.9;
+  margin-bottom: 32px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Email input */
+#shopify-section-newsletter .field__input {
+  border: 2px solid rgb(255, 255, 255);
+  background: transparent;
+  color: rgb(255, 255, 255);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+}
+
+#shopify-section-newsletter .field__input::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+#shopify-section-newsletter .field__input:focus {
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+/* Submit button */
+#shopify-section-newsletter .newsletter-form__button {
+  background-color: rgb(28, 28, 46);
+  color: rgb(255, 255, 255);
+  border-color: rgb(28, 28, 46);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#shopify-section-newsletter .newsletter-form__button:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(28, 28, 46);
 }

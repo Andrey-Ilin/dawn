@@ -152,6 +152,120 @@
         "padding_bottom": 72
       }
     },
+    "brand-story": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Art born from a new beginning",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>SwaySculpt was born from a deep love of art — painting, photography, and the belief that clothing should feel like more than just fabric. Every design in our collection starts as original artwork before it becomes something you can wear.</p><p>Based in Canada, we create bold, art-inspired pieces and print each one on demand — so nothing goes to waste and every order is made with intention. When you wear SwaySculpt, you carry a piece of that story with you.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Our Story",
+            "button_link": "/pages/about",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": ["heading", "text", "button"],
+      "settings": {
+        "layout": "image_first",
+        "color_scheme": "scheme-1",
+        "section_color_scheme": "scheme-1",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "process-strip": {
+      "type": "multicolumn",
+      "blocks": {
+        "step-1": {
+          "type": "column",
+          "settings": {
+            "title": "Original Artwork",
+            "text": "<p>Every design begins as an original painting or photograph — not a stock illustration.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "step-2": {
+          "type": "column",
+          "settings": {
+            "title": "Designed for Print",
+            "text": "<p>Each piece of artwork is carefully adapted and optimised for fabric printing.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "step-3": {
+          "type": "column",
+          "settings": {
+            "title": "Printed & Shipped",
+            "text": "<p>Your order is printed on demand and shipped directly to your door in 5–10 business days.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["step-1", "step-2", "step-3"],
+      "settings": {
+        "title": "How it's made",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "color_scheme": "scheme-4",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join the creative circle",
+            "heading_size": "h2"
+          }
+        },
+        "subtext": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>New prints, behind-the-scenes stories, and exclusive drops — straight to your inbox.</p>"
+          }
+        },
+        "email_form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": ["heading", "subtext", "email_form"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "rich_text": {
       "type": "rich-text",
       "blocks": {
@@ -240,6 +354,9 @@
     "image_banner",
     "category_tiles",
     "featured_collection",
+    "brand-story",
+    "process-strip",
+    "newsletter",
     "rich_text",
     "collage",
     "video"

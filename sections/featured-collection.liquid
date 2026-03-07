@@ -1,15 +1,32 @@
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
-{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{%- if section.index > 2 -%}
+  <link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.onload=null;this.media='all'">
+  <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.onload=null;this.media='all'">
+  <link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.onload=null;this.media='all'">
+  <link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.onload=null;this.media='all'">
+  <noscript>
+    {{ 'component-card.css' | asset_url | stylesheet_tag }}
+    {{ 'component-price.css' | asset_url | stylesheet_tag }}
+    {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+    {{ 'template-collection.css' | asset_url | stylesheet_tag }}
+  </noscript>
+{%- else -%}
+  {{ 'component-card.css' | asset_url | stylesheet_tag }}
+  {{ 'component-price.css' | asset_url | stylesheet_tag }}
+  {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+  {{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
 {%- unless section.settings.quick_add == 'none' -%}
-  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  {%- if section.index > 2 -%}
+    <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.onload=null;this.media='all'">
+    <noscript>{{ 'quick-add.css' | asset_url | stylesheet_tag }}</noscript>
+  {%- else -%}
+    {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 {%- endunless -%}
 

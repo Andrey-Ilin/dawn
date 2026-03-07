@@ -735,7 +735,85 @@
     <script type="application/ld+json">
       {{ product | structured_data }}
     </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": {{ shop.name | json }},
+          "item": {{ shop.url | json }}
+        }
+        {%- if collection -%}
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ collection.title | json }},
+          "item": {{ collection.url | prepend: shop.url | json }}
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ product.title | json }}
+        }
+        {%- else -%}
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ product.title | json }}
+        }
+        {%- endif -%}
+      ]
+    }
+    </script>
   </div>
+
+  {%- if product != blank -%}
+    {%- assign sticky_form_id = 'product-form-' | append: section.id -%}
+    <div
+      id="StickyAtc-{{ section.id }}"
+      class="sticky-atc"
+      aria-hidden="true"
+    >
+      <div class="sticky-atc__inner page-width">
+        <div class="sticky-atc__info">
+          <span class="sticky-atc__title">{{ product.title | escape }}</span>
+          <span class="sticky-atc__price">
+            {%- render 'price', product: product, use_variant: true -%}
+          </span>
+        </div>
+        <button
+          type="submit"
+          form="{{ sticky_form_id }}"
+          class="sticky-atc__button button"
+          {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
+        >
+          {%- if product.selected_or_first_available_variant.available -%}
+            {{ 'products.product.add_to_cart' | t }}
+          {%- else -%}
+            {{ 'products.product.sold_out' | t }}
+          {%- endif -%}
+        </button>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.getElementById('ProductSubmitButton-{{ section.id }}');
+        var bar = document.getElementById('StickyAtc-{{ section.id }}');
+        if (!btn || !bar) return;
+        var observer = new IntersectionObserver(function (entries) {
+          var visible = !entries[0].isIntersecting;
+          bar.classList.toggle('sticky-atc--visible', visible);
+          bar.setAttribute('aria-hidden', visible ? 'false' : 'true');
+        }, { threshold: 0 });
+        observer.observe(btn);
+      })();
+    </script>
+  {%- endif -%}
 </product-info>
 
 {% schema %}

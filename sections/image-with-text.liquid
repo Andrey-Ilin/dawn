@@ -1,4 +1,9 @@
-{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+{%- if section.index > 2 -%}
+  <link rel="stylesheet" href="{{ 'component-image-with-text.css' | asset_url }}" media="print" onload="this.onload=null;this.media='all'">
+  <noscript>{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}</noscript>
+{%- else -%}
+  {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

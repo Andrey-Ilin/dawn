@@ -195,6 +195,26 @@
   {%- endif -%}
 </div>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": {{ collection.title | json }},
+  "url": {{ collection.url | prepend: shop.url | json }},
+  "itemListElement": [
+    {%- for product in collection.products limit: 10 -%}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.index }},
+      "name": {{ product.title | json }},
+      "url": {{ product.url | prepend: shop.url | json }},
+      "image": {{ product.featured_image | image_url: width: 600 | json }}
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+}
+</script>
+
 {% schema %}
 {
   "name": "t:sections.main-collection-product-grid.name",

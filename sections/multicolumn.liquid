@@ -1,5 +1,14 @@
-{{ 'section-multicolumn.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{%- if section.index > 2 -%}
+  <link rel="stylesheet" href="{{ 'section-multicolumn.css' | asset_url }}" media="print" onload="this.onload=null;this.media='all'">
+  <link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.onload=null;this.media='all'">
+  <noscript>
+    {{ 'section-multicolumn.css' | asset_url | stylesheet_tag }}
+    {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+  </noscript>
+{%- else -%}
+  {{ 'section-multicolumn.css' | asset_url | stylesheet_tag }}
+  {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

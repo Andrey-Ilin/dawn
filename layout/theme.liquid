@@ -11,10 +11,11 @@
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
 
-    <!-- SwaySculpt: Google Fonts -->
+    <!-- SwaySculpt: Google Fonts — async to avoid render-blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
 
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
@@ -27,9 +28,13 @@
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
-    {% if page_description %}
+    {%- if page_description != blank -%}
       <meta name="description" content="{{ page_description | escape }}">
-    {% endif %}
+    {%- elsif template.name == 'product' -%}
+      <meta name="description" content="{{ product.description | strip_html | truncate: 155 | escape }}">
+    {%- elsif template.name == 'collection' -%}
+      <meta name="description" content="{{ collection.description | strip_html | truncate: 155 | default: collection.title | escape }}">
+    {%- endif -%}
 
     {% render 'meta-tags' %}
 

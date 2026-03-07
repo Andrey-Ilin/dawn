@@ -3620,9 +3620,9 @@ details-disclosure > details {
   --font-body-style: normal;
   --font-body-weight: 400;
   --font-body-weight-bold: 700;
-  --font-heading-family: 'Playfair Display', serif;
+  --font-heading-family: 'Inter', sans-serif;
   --font-heading-style: normal;
-  --font-heading-weight: 700;
+  --font-heading-weight: 600;
 }
 
 /* Header — Deep Ink background, white text */
@@ -3635,6 +3635,12 @@ details-disclosure > details {
 .header__icon,
 .header a {
   color: rgb(255, 255, 255);
+}
+
+/* Nav active link — Artist Gold so it's visible on Deep Ink header */
+.header__active-menu-item {
+  color: rgb(232, 160, 32);
+  text-decoration-color: rgb(232, 160, 32);
 }
 
 /* Nav link hover — Artist Gold */
@@ -3703,8 +3709,11 @@ details-disclosure > details {
 /* Tile label */
 .multicolumn-list__item .multicolumn-card__info h3,
 .multicolumn-list__item .multicolumn-card__info .h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   margin-top: 16px;
 }
 
@@ -3737,9 +3746,17 @@ details-disclosure > details {
 }
 
 .card__media {
+  aspect-ratio: 3 / 4;
   border-radius: 4px;
   overflow: hidden;
   background-color: rgb(255, 255, 255);
+}
+
+.card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .card-wrapper:hover .card__inner {
@@ -3768,8 +3785,11 @@ details-disclosure > details {
 
 /* Featured collection heading */
 .featured-collection .title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 4vw, 42px);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-align: center;
   margin-bottom: 48px;
 }
@@ -3799,9 +3819,11 @@ details-disclosure > details {
 
 /* Brand story — text column typography */
 .image-with-text__heading {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 3.5vw, 42px);
-  line-height: 1.2;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
   margin-bottom: 24px;
   color: rgb(28, 28, 46);
 }
@@ -3832,7 +3854,11 @@ details-disclosure > details {
 /* Process strip — scoped to prevent leaking to category tiles multicolumn */
 #shopify-section-process-strip .multicolumn__title,
 #shopify-section-process-strip .title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: rgb(255, 255, 255);
   text-align: center;
   margin-bottom: 56px;
@@ -3849,9 +3875,10 @@ details-disclosure > details {
 #shopify-section-process-strip .multicolumn-list__item::before {
   content: "0" counter(process-step);
   display: block;
-  font-family: 'Playfair Display', serif;
-  font-size: 48px;
+  font-family: 'Inter', sans-serif;
+  font-size: 40px;
   font-weight: 700;
+  letter-spacing: 0.04em;
   color: rgb(232, 160, 32);
   line-height: 1;
   margin-bottom: 20px;
@@ -3885,9 +3912,9 @@ details-disclosure > details {
   }
 }
 
-/* Newsletter — Studio Coral background */
+/* Newsletter — Deep Ink background */
 #shopify-section-newsletter {
-  background-color: rgb(212, 83, 58);
+  background-color: rgb(28, 28, 46);
 }
 
 #shopify-section-newsletter .newsletter__wrapper {
@@ -3897,8 +3924,10 @@ details-disclosure > details {
 /* Heading */
 #shopify-section-newsletter h2,
 #shopify-section-newsletter .h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 4vw, 44px);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 600;
+  letter-spacing: 0.04em;
   color: rgb(255, 255, 255);
   margin-bottom: 12px;
 }
@@ -3934,20 +3963,187 @@ details-disclosure > details {
   outline: none;
 }
 
-/* Submit button */
+/* Submit button — gold accent, the one place gold fills */
 #shopify-section-newsletter .newsletter-form__button {
-  background-color: rgb(28, 28, 46);
-  color: rgb(255, 255, 255);
-  border-color: rgb(28, 28, 46);
+  background-color: rgb(232, 160, 32);
+  color: rgb(28, 28, 46);
+  border-color: rgb(232, 160, 32);
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 #shopify-section-newsletter .newsletter-form__button:hover {
   background-color: rgb(255, 255, 255);
   color: rgb(28, 28, 46);
+  border-color: rgb(255, 255, 255);
+}
+
+/* ===================================================
+   Outline-style primary buttons (BW-inspired)
+   Transparent bg + solid border; fills on hover
+   =================================================== */
+.button:not(.button--secondary):not(.button--tertiary) {
+  --alpha-button-background: 0;
+  background-color: transparent;
+  border: 0.1rem solid rgb(var(--color-foreground));
+  color: rgb(var(--color-foreground));
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  font-size: 1.3rem;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.button:not(.button--secondary):not(.button--tertiary)::after {
+  display: none;
+}
+
+.button:not(.button--secondary):not(.button--tertiary):not([disabled]):hover {
+  background-color: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  border-color: rgb(var(--color-button));
+}
+
+/* Trust badge strip — below ATC button on product pages */
+.trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.6rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.1);
+}
+
+.trust-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(var(--color-foreground), 0.55);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.trust-badge::before {
+  content: '';
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background-color: rgb(var(--color-button));
+  flex-shrink: 0;
+}
+
+/* Announcement bar — reserve height to prevent CLS when bar is empty */
+.announcement-bar-section {
+  min-height: 3.5rem;
+}
+
+/* Quick-add — show only on card hover */
+.quick-add {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.card-wrapper:hover .quick-add,
+.card-wrapper:focus-within .quick-add {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Sold-out cards — dim image for easy scan */
+.card:has(.color-scheme-3) .card__media {
+  opacity: 0.45;
+}
+
+/* Hero — cap height on mobile so content below stays visible */
+@media screen and (max-width: 749px) {
+  .banner--large .banner__media {
+    max-height: 65svh;
+  }
+}
+
+/* ===================================================
+   Sticky mobile ATC bar
+   =================================================== */
+.sticky-atc {
+  display: none;
+}
+
+@media screen and (max-width: 749px) {
+  .sticky-atc {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: rgb(var(--color-foreground));
+    padding: 1.2rem 0;
+    padding-bottom: calc(1.2rem + env(safe-area-inset-bottom));
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .sticky-atc--visible {
+    transform: translateY(0);
+  }
+
+  .sticky-atc__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+  }
+
+  .sticky-atc__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sticky-atc__title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: rgb(var(--color-background));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sticky-atc__price .price__regular .price-item,
+  .sticky-atc__price .price__sale .price-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgb(var(--color-background));
+  }
+
+  .sticky-atc__button.button {
+    flex-shrink: 0;
+    min-width: 0;
+    padding: 0 2rem;
+    min-height: 4rem;
+    background-color: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
+    border-color: rgb(var(--color-button));
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+  }
+
+  .sticky-atc__button.button:hover {
+    background-color: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
+  }
 }

@@ -22,14 +22,14 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "Art-inspired designs, printed on demand, shipped to you",
+            "text": "Original wearable art prints",
             "text_style": "subtitle"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop the Collection",
+            "button_label_1": "Shop Now",
             "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": false,
             "button_label_2": "",
@@ -152,52 +152,14 @@
         "padding_bottom": 80
       }
     },
-    "brand-story": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Art born from a new beginning",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>SwaySculpt was born from a deep love of art — painting, photography, and the belief that clothing should feel like more than just fabric. Every design in our collection starts as original artwork before it becomes something you can wear.</p><p>Based in Canada, we create bold, art-inspired pieces and print each one on demand — so nothing goes to waste and every order is made with intention. When you wear SwaySculpt, you carry a piece of that story with you.</p>"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Our Story",
-            "button_link": "/pages/about",
-            "button_style_secondary": true
-          }
-        }
-      },
-      "block_order": ["heading", "text", "button"],
-      "settings": {
-        "layout": "image_first",
-        "color_scheme": "scheme-1",
-        "section_color_scheme": "scheme-1",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
     "process-strip": {
       "type": "multicolumn",
       "blocks": {
         "step-1": {
           "type": "column",
           "settings": {
-            "title": "Original Artwork",
-            "text": "<p>Every design begins as an original painting or photograph — not a stock illustration.</p>",
+            "title": "Designed Here",
+            "text": "<p>Original artwork and graphics, made in-house.</p>",
             "link_label": "",
             "link": ""
           }
@@ -205,8 +167,8 @@
         "step-2": {
           "type": "column",
           "settings": {
-            "title": "Designed for Print",
-            "text": "<p>Each piece of artwork is carefully adapted and optimised for fabric printing.</p>",
+            "title": "Crafted to Order",
+            "text": "<p>Each piece is made when you order.</p>",
             "link_label": "",
             "link": ""
           }
@@ -214,8 +176,8 @@
         "step-3": {
           "type": "column",
           "settings": {
-            "title": "Printed & Shipped",
-            "text": "<p>Your order is printed on demand and shipped directly to your door in 5–10 business days.</p>",
+            "title": "Shipped to You",
+            "text": "<p>Delivered to your door in 5–10 business days.</p>",
             "link_label": "",
             "link": ""
           }
@@ -233,6 +195,8 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "color_scheme": "scheme-4",
+        "button_label": "",
+        "button_link": "",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -243,14 +207,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Join the creative circle",
+            "heading": "Get early access to new drops",
             "heading_size": "h2"
           }
         },
         "subtext": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>New prints, behind-the-scenes stories, and exclusive drops — straight to your inbox.</p>"
+            "text": "<p>New prints and exclusive releases delivered to your inbox.</p>"
           }
         },
         "email_form": {
@@ -260,7 +224,7 @@
       },
       "block_order": ["heading", "subtext", "email_form"],
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-5",
         "full_width": true,
         "padding_top": 80,
         "padding_bottom": 80
@@ -271,7 +235,6 @@
     "image_banner",
     "category_tiles",
     "featured_collection",
-    "brand-story",
     "process-strip",
     "newsletter"
   ]

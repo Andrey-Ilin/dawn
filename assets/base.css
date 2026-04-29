@@ -3633,8 +3633,35 @@ details-disclosure > details {
 .header__heading-link,
 .header__menu-item,
 .header__icon,
-.header a {
+.header a,
+.header-wrapper .localization-selector.link,
+.header-wrapper .disclosure__button.localization-form__select {
   color: rgb(255, 255, 255);
+}
+
+.header-wrapper .disclosure__list-wrapper {
+  --color-background: 248, 246, 241;
+  --color-foreground: 15, 15, 15;
+  background-color: rgb(248, 246, 241);
+  color: rgb(15, 15, 15);
+  border-color: rgba(15, 15, 15, 0.15);
+}
+
+.header-wrapper .disclosure__list-wrapper .disclosure__link {
+  color: rgba(15, 15, 15, 0.75);
+}
+
+.header-wrapper .disclosure__list-wrapper .disclosure__link:hover,
+.header-wrapper .disclosure__list-wrapper .disclosure__link:focus-visible,
+.header-wrapper .disclosure__list-wrapper .disclosure__link[aria-current='true'] {
+  color: rgb(15, 15, 15);
+  background-color: rgba(15, 15, 15, 0.06);
+}
+
+.header-wrapper .country-filter,
+.header-wrapper .country-filter__reset-button:focus,
+.header-wrapper .country-filter__reset-button:focus-visible {
+  background-color: rgb(248, 246, 241);
 }
 
 /* Nav active link — Artist Gold so it's visible on Deep Ink header */

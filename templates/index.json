@@ -183,20 +183,24 @@
           }
         }
       },
-      "block_order": ["step-1", "step-2", "step-3"],
+      "block_order": [
+        "step-1",
+        "step-2",
+        "step-3"
+      ],
       "settings": {
         "title": "",
         "heading_size": "h2",
         "image_width": "full",
         "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "none",
+        "color_scheme": "scheme-4",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "color_scheme": "scheme-4",
-        "button_label": "",
-        "button_link": "",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -204,7 +208,7 @@
     "new_arrivals": {
       "type": "featured-collection",
       "settings": {
-        "collection": "new-arrivals",
+        "collection": "accessories-backpacks",
         "products_to_show": 8,
         "title": "New Arrivals",
         "heading_size": "h2",
@@ -250,14 +254,18 @@
           "settings": {}
         }
       },
-      "block_order": ["heading", "subtext", "email_form"],
+      "block_order": [
+        "heading",
+        "subtext",
+        "email_form"
+      ],
       "settings": {
         "color_scheme": "scheme-5",
         "full_width": true,
         "padding_top": 80,
         "padding_bottom": 80
       }
-    },
+    }
   },
   "order": [
     "image_banner",

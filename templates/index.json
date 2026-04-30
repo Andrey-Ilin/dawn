@@ -145,7 +145,7 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "standard",
+        "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "padding_top": 80,
@@ -185,7 +185,7 @@
       },
       "block_order": ["step-1", "step-2", "step-3"],
       "settings": {
-        "title": "How it's made",
+        "title": "",
         "heading_size": "h2",
         "image_width": "full",
         "image_ratio": "adapt",
@@ -197,6 +197,34 @@
         "color_scheme": "scheme-4",
         "button_label": "",
         "button_link": "",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "new_arrivals": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "new-arrivals",
+        "products_to_show": 8,
+        "title": "New Arrivals",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 3,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -236,6 +264,7 @@
     "category_tiles",
     "featured_collection",
     "process-strip",
+    "new_arrivals",
     "newsletter"
   ]
 }

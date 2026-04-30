@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 12
+      }
+    },
+    "size-tables": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"size-guide page-width\"><section class=\"size-guide__section\"><h2 class=\"size-guide__heading\">Apparel (in)</h2><div class=\"size-guide__table-wrap\"><table class=\"size-guide__table\"><thead><tr><th scope=\"col\">Size</th><th scope=\"col\">S</th><th scope=\"col\">M</th><th scope=\"col\">L</th><th scope=\"col\">XL</th><th scope=\"col\">2XL</th><th scope=\"col\">3XL</th></tr></thead><tbody><tr><th scope=\"row\">Width</th><td>19.25</td><td>21.26</td><td>23.23</td><td>25.24</td><td>27.24</td><td>29.25</td></tr><tr><th scope=\"row\">Length</th><td>26.97</td><td>27.99</td><td>28.98</td><td>30.00</td><td>30.98</td><td>31.97</td></tr><tr><th scope=\"row\">Sleeve</th><td>33.98</td><td>35.00</td><td>35.98</td><td>36.97</td><td>37.99</td><td>38.98</td></tr></tbody></table></div><p class=\"size-guide__note\">Width measured from underarm to underarm. Length from high point shoulder to hem. Tolerance ±0.5\".</p></section><section class=\"size-guide__section\"><h2 class=\"size-guide__heading\">Socks</h2><div class=\"size-guide__table-wrap\"><table class=\"size-guide__table\"><thead><tr><th scope=\"col\">Size</th><th scope=\"col\">US Men</th><th scope=\"col\">US Women</th><th scope=\"col\">EU</th></tr></thead><tbody><tr><th scope=\"row\">S\/M</th><td>5–8</td><td>6–10</td><td>38–42</td></tr><tr><th scope=\"row\">L\/XL</th><td>9–12</td><td>11–14</td><td>43–47</td></tr></tbody></table></div></section></div>",
+        "color_scheme": "scheme-1",
+        "padding_top": 12,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "size-tables"
+  ]
+}

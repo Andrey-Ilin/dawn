@@ -3677,6 +3677,17 @@ details-disclosure > details {
   font-weight: 600;
 }
 
+/* Hero banner height — 90vh desktop / 70vh mobile per spec §4.2 */
+.banner.banner--large:not(.banner--adapt) {
+  min-height: 70vh;
+}
+
+@media screen and (min-width: 750px) {
+  .banner.banner--large:not(.banner--adapt) {
+    min-height: 90vh;
+  }
+}
+
 /* Hero placeholder — exact Deep Ink until real photography is added */
 .banner__media {
   background-color: rgb(28, 28, 46);
@@ -3792,7 +3803,7 @@ details-disclosure > details {
 /* Subtle image zoom on hover; no card lift */
 
 [id*="category_tiles"] .multicolumn-card:hover .media img {
-  transform: scale(1.04);
+  transform: scale(1.02);
 }
 
 
@@ -3805,7 +3816,7 @@ details-disclosure > details {
 }
 
 .card__media {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   border-radius: 4px;
   overflow: hidden;
   background-color: rgb(255, 255, 255);
@@ -4056,6 +4067,81 @@ details-disclosure > details {
 .button:not(.button--secondary):not(.button--tertiary):not([disabled]):hover {
   background-color: rgb(var(--color-foreground));
   color: rgb(var(--color-background));
+}
+
+/* Size guide link — above variant picker on PDP per spec §5 */
+.product__size-guide-link {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: rgba(var(--color-foreground), 0.75);
+  margin-bottom: 0.8rem;
+}
+
+.product__size-guide-link:hover {
+  color: rgb(var(--color-foreground));
+}
+
+/* Size guide page — /pages/size-guide */
+.size-guide__section {
+  margin-bottom: 4.8rem;
+}
+
+.size-guide__heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0 0 1.6rem;
+  color: rgb(var(--color-foreground));
+}
+
+.size-guide__table-wrap {
+  overflow-x: auto;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  border-radius: 0.4rem;
+}
+
+.size-guide__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.4rem;
+}
+
+.size-guide__table th,
+.size-guide__table td {
+  padding: 1.2rem 1.6rem;
+  text-align: center;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.size-guide__table thead th {
+  background: rgba(var(--color-foreground), 0.04);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1.2rem;
+}
+
+.size-guide__table tbody tr:last-child th,
+.size-guide__table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.size-guide__table tbody th {
+  font-weight: 600;
+  text-align: left;
+}
+
+.size-guide__note {
+  margin: 1.2rem 0 0;
+  font-size: 1.3rem;
+  color: rgba(var(--color-foreground), 0.7);
 }
 
 /* Trust badge strip — below ATC button on product pages */

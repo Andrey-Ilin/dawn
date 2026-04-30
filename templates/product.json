@@ -16,6 +16,12 @@
         "price": {
           "type": "price"
         },
+        "size_guide_link": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- assign size_guide = pages['size-guide'] -%}{% if size_guide.url != blank %}<a href=\"{{ size_guide.url }}\" class=\"product__size-guide-link\">Size guide</a>{% endif %}"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -35,46 +41,13 @@
         "description": {
           "type": "description"
         },
-        "collapsible-row-0": {
+        "material_care": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Materials",
+            "heading": "Material / care",
             "icon": "leather",
             "content": "",
             "page": ""
-          }
-        },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
-            "page": ""
-          }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
           }
         }
       },
@@ -82,15 +55,12 @@
         "title",
         "caption",
         "price",
+        "size_guide_link",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
         "description",
-        "collapsible-row-0",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-3",
-        "share"
+        "material_care"
       ],
       "settings": {
         "enable_sticky_info": true,

@@ -3625,9 +3625,9 @@ details-disclosure > details {
   --font-heading-weight: 600;
 }
 
-/* Header — Deep Ink background, white text */
+/* Header — Off-White background, Near-Black text per spec §4 */
 .header-wrapper {
-  background-color: rgb(28, 28, 46) !important;
+  background-color: rgb(248, 246, 241) !important;
 }
 
 .header__heading-link,
@@ -3636,15 +3636,7 @@ details-disclosure > details {
 .header a,
 .header-wrapper .localization-selector.link,
 .header-wrapper .disclosure__button.localization-form__select {
-  color: rgb(255, 255, 255);
-}
-
-.header-wrapper .disclosure__list-wrapper {
-  --color-background: 248, 246, 241;
-  --color-foreground: 15, 15, 15;
-  background-color: rgb(248, 246, 241);
   color: rgb(15, 15, 15);
-  border-color: rgba(15, 15, 15, 0.15);
 }
 
 .header-wrapper .disclosure__list-wrapper .disclosure__link {
@@ -3658,19 +3650,8 @@ details-disclosure > details {
   background-color: rgba(15, 15, 15, 0.06);
 }
 
-.header-wrapper .country-filter,
-.header-wrapper .country-filter__reset-button:focus,
-.header-wrapper .country-filter__reset-button:focus-visible {
-  background-color: rgb(248, 246, 241);
-}
-
-/* Nav active link — Artist Gold so it's visible on Deep Ink header */
-.header__active-menu-item {
-  color: rgb(232, 160, 32);
-  text-decoration-color: rgb(232, 160, 32);
-}
-
-/* Nav link hover — Artist Gold */
+/* Nav active + hover — Artist Gold accent on light header */
+.header__active-menu-item,
 .header__menu-item:hover > .header__active-menu-item,
 .header__menu-item:focus-visible > .header__active-menu-item,
 .header__menu-item:hover,
@@ -3679,11 +3660,11 @@ details-disclosure > details {
   text-decoration-color: rgb(232, 160, 32);
 }
 
-/* Logo sizing */
+/* Logo sizing — flipped to dark for off-white bg until a brand-correct dark SVG is uploaded */
 .header__heading-logo {
   max-width: 120px;
   height: auto;
-  filter: brightness(0) invert(1);
+  filter: brightness(0);
 }
 
 /* Button style — flat, editorial */
@@ -3701,11 +3682,15 @@ details-disclosure > details {
   background-color: rgb(28, 28, 46);
 }
 
-/* Hero heading — large editorial */
+/* Hero heading — large editorial. White + text-shadow for legibility over photo. */
 .banner__heading {
-  font-size: clamp(42px, 7vw, 88px);
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(42px, 7vw, 72px);
   line-height: 1.05;
   letter-spacing: -0.02em;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
 }
 
 /* Hero subheading */
@@ -3721,48 +3706,95 @@ details-disclosure > details {
   margin-top: 32px;
 }
 
-/* Category tiles — consistent square crop */
-.multicolumn-list__item .media {
+/* Category tiles — label overlaid on bottom of image, centered.
+   Scoped to the homepage category_tiles section so process strip and other
+   multicolumn uses are untouched. */
+[id*="category_tiles"] .multicolumn-card {
+  overflow: hidden;
+}
+
+[id*="category_tiles"] .multicolumn-list__item .media {
   aspect-ratio: 1 / 1;
   overflow: hidden;
 }
-.multicolumn-list__item .media img {
+
+[id*="category_tiles"] .multicolumn-list__item .media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  transition: transform 0.5s ease;
 }
 
-/* Tile label */
-.multicolumn-list__item .multicolumn-card__info h3,
-.multicolumn-list__item .multicolumn-card__info .h3 {
+/* Sharp corners — override Dawn's top-corner radius */
+[id*="category_tiles"] .multicolumn-card__image-wrapper {
+  position: relative;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+/* Gradient scrim so the white label stays legible over any photo */
+[id*="category_tiles"] .multicolumn-card__image-wrapper::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 45%;
+  background: linear-gradient(to top, rgba(15, 15, 15, 0.55) 0%, rgba(15, 15, 15, 0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Label overlaid at the bottom of the image, centered */
+[id*="category_tiles"] .multicolumn-card__info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 24px;
+  padding: 0 16px;
+  text-align: center;
+  z-index: 2;
+}
+
+[id*="category_tiles"] .multicolumn-card__info h3,
+[id*="category_tiles"] .multicolumn-card__info .h3 {
   font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-top: 16px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  margin: 0;
 }
 
-/* Tile CTA link */
-.multicolumn-list__item .multicolumn-card__info a {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgb(28, 28, 46);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+/* Hide the inline "Shop X →" link visually but keep it as a full-card
+   clickable overlay so the entire tile is the hit target. */
+[id*="category_tiles"] .multicolumn-card__info .link.animate-arrow {
+  font-size: 0;
+  line-height: 0;
+  margin: 0;
+  color: transparent;
 }
 
-/* Hover lift */
-.multicolumn-list__item {
-  transition: transform 0.2s ease;
+[id*="category_tiles"] .multicolumn-card__info .link.animate-arrow .svg-wrapper {
+  display: none;
 }
-.multicolumn-list__item:hover {
-  transform: translateY(-4px);
+
+[id*="category_tiles"] .multicolumn-card__info .link.animate-arrow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
 }
+
+/* Subtle image zoom on hover; no card lift */
+
+[id*="category_tiles"] .multicolumn-card:hover .media img {
+  transform: scale(1.04);
+}
+
 
 /* Product cards */
 .card-wrapper {
@@ -3939,18 +3971,9 @@ details-disclosure > details {
   }
 }
 
-/* Newsletter — Deep Ink background */
-#shopify-section-newsletter {
-  background-color: rgb(28, 28, 46);
-}
-
-#shopify-section-newsletter .newsletter__wrapper {
-  background: none;
-}
-
-/* Heading */
-#shopify-section-newsletter h2,
-#shopify-section-newsletter .h2 {
+/* Newsletter — coral bg from color-scheme-5; force full-white text + gold CTA */
+.newsletter__wrapper h2,
+.newsletter__wrapper .h2 {
   font-family: 'Inter', sans-serif;
   font-size: clamp(24px, 3vw, 36px);
   font-weight: 600;
@@ -3959,21 +3982,19 @@ details-disclosure > details {
   margin-bottom: 12px;
 }
 
-/* Subtext */
-#shopify-section-newsletter .newsletter__subheading p,
-#shopify-section-newsletter .newsletter__subheading {
+.newsletter__wrapper .newsletter__subheading,
+.newsletter__wrapper .newsletter__subheading p {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   color: rgb(255, 255, 255);
-  opacity: 0.9;
+  opacity: 1;
   margin-bottom: 32px;
   max-width: 480px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Email input */
-#shopify-section-newsletter .field__input {
+.newsletter__wrapper .field__input {
   border: 2px solid rgb(255, 255, 255);
   background: transparent;
   color: rgb(255, 255, 255);
@@ -3981,19 +4002,18 @@ details-disclosure > details {
   font-size: 15px;
 }
 
-#shopify-section-newsletter .field__input::placeholder {
-  color: rgba(255, 255, 255, 0.65);
+.newsletter__wrapper .field__input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
 }
 
-#shopify-section-newsletter .field__input:focus {
+.newsletter__wrapper .field__input:focus {
   background: rgba(255, 255, 255, 0.1);
   outline: none;
 }
 
-/* Submit button — gold accent, the one place gold fills */
-#shopify-section-newsletter .newsletter-form__button {
+.newsletter__wrapper .newsletter-form__button {
   background-color: rgb(232, 160, 32);
-  color: rgb(28, 28, 46);
+  color: rgb(15, 15, 15);
   border-color: rgb(232, 160, 32);
   font-family: 'Inter', sans-serif;
   font-size: 13px;
@@ -4003,25 +4023,30 @@ details-disclosure > details {
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-#shopify-section-newsletter .newsletter-form__button:hover {
+.newsletter__wrapper .newsletter-form__button:hover {
   background-color: rgb(255, 255, 255);
-  color: rgb(28, 28, 46);
+  color: rgb(15, 15, 15);
   border-color: rgb(255, 255, 255);
 }
 
+/* Secondary button — 2px solid border per spec §4 */
+.button--secondary {
+  --buttons-border-width: 2px;
+}
+
 /* ===================================================
-   Outline-style primary buttons (BW-inspired)
-   Transparent bg + solid border; fills on hover
+   Primary CTA — Accent Gold fill + Near-Black text per spec §4
+   On hover: invert to Near-Black fill + Off-White text
    =================================================== */
 .button:not(.button--secondary):not(.button--tertiary) {
-  --alpha-button-background: 0;
-  background-color: transparent;
-  border: 0.1rem solid rgb(var(--color-foreground));
-  color: rgb(var(--color-foreground));
+  --alpha-button-background: 1;
+  background-color: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  border: 0;
   text-transform: uppercase;
   letter-spacing: 0.12rem;
   font-size: 1.3rem;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .button:not(.button--secondary):not(.button--tertiary)::after {
@@ -4029,9 +4054,8 @@ details-disclosure > details {
 }
 
 .button:not(.button--secondary):not(.button--tertiary):not([disabled]):hover {
-  background-color: rgb(var(--color-button));
-  color: rgb(var(--color-button-text));
-  border-color: rgb(var(--color-button));
+  background-color: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
 }
 
 /* Trust badge strip — below ATC button on product pages */

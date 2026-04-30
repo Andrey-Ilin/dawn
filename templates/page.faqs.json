@@ -1,0 +1,71 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "row-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I personalize the designs by selecting size and color?",
+            "icon": "question_mark",
+            "row_content": "<p>Yes. You can choose size and color on every product page. Text and image customization aren't available at this time.</p>"
+          }
+        },
+        "row-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does it take to process and ship orders?",
+            "icon": "question_mark",
+            "row_content": "<p>Typical processing time is 1–4 business days from the date of purchase. See our <a href=\"/policies/shipping-policy\">Shipping &amp; Handling</a> page for delivery details.</p>"
+          }
+        },
+        "row-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What payment methods do you accept?",
+            "icon": "question_mark",
+            "row_content": "<p>We accept PayPal, Mastercard, Visa, and American Express. All transactions are processed securely.</p>"
+          }
+        },
+        "row-4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How can I track my order?",
+            "icon": "question_mark",
+            "row_content": "<p>Once your order ships, you'll receive a confirmation email with a tracking number and link.</p>"
+          }
+        },
+        "row-5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is your return policy?",
+            "icon": "question_mark",
+            "row_content": "<p>See our <a href=\"/policies/refund-policy\">Refund Policy</a> page for full return details.</p>"
+          }
+        }
+      },
+      "block_order": ["row-1", "row-2", "row-3", "row-4", "row-5"],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": ["main", "faq"]
+}

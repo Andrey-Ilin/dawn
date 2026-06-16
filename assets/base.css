@@ -2795,6 +2795,10 @@ details[open] > .header__submenu {
   padding: 1.2rem;
   text-decoration: none;
   color: rgba(var(--color-foreground), 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .header__menu-item:hover {
@@ -3602,32 +3606,32 @@ details-disclosure > details {
 
 /* Color tokens — override Liquid-generated scheme values */
 :root {
-  --color-background: 248, 246, 241;            /* Warm Parchment #F8F6F1 */
-  --color-foreground: 28, 28, 46;               /* Deep Ink #1C1C2E */
-  --color-background-contrast: 220, 218, 213;
-  --color-shadow: 28, 28, 46;
-  --color-button: 232, 160, 32;                 /* Artist Gold #E8A020 */
-  --color-button-text: 28, 28, 46;              /* Deep Ink on gold buttons */
-  --color-secondary-button: 28, 28, 46;         /* Deep Ink */
+  --color-background: 255, 248, 240;            /* Off-White #FFF8F0 */
+  --color-foreground: 26, 26, 26;               /* Charcoal Black #1A1A1A */
+  --color-background-contrast: 232, 227, 219;   /* Soft Beige #E8E3DB */
+  --color-shadow: 26, 26, 26;
+  --color-button: 232, 120, 109;                /* Soft Coral #E8786D */
+  --color-button-text: 255, 255, 255;           /* White on coral buttons */
+  --color-secondary-button: 26, 26, 26;
   --color-secondary-button-text: 255, 255, 255;
-  --color-link: 144, 150, 168;                  /* Slate */
+  --color-link: 26, 26, 26;
   --color-badge-foreground: 255, 255, 255;
-  --color-badge-background: 212, 83, 58;        /* Studio Coral #D4533A */
-  --color-badge-border: 212, 83, 58;
+  --color-badge-background: 232, 120, 109;      /* Soft Coral #E8786D */
+  --color-badge-border: 232, 120, 109;
 
   /* Typography — override Liquid-generated font vars */
   --font-body-family: 'Inter', sans-serif;
   --font-body-style: normal;
   --font-body-weight: 400;
   --font-body-weight-bold: 700;
-  --font-heading-family: 'Inter', sans-serif;
+  --font-heading-family: 'Playfair Display', serif;
   --font-heading-style: normal;
-  --font-heading-weight: 600;
+  --font-heading-weight: 700;
 }
 
-/* Header — Off-White background, Near-Black text per spec §4 */
+/* Header — Off-White background */
 .header-wrapper {
-  background-color: rgb(248, 246, 241) !important;
+  background-color: rgb(255, 248, 240) !important;
 }
 
 .header__heading-link,
@@ -3636,18 +3640,18 @@ details-disclosure > details {
 .header a,
 .header-wrapper .localization-selector.link,
 .header-wrapper .disclosure__button.localization-form__select {
-  color: rgb(15, 15, 15);
+  color: rgb(26, 26, 26);
 }
 
 .header-wrapper .disclosure__list-wrapper .disclosure__link {
-  color: rgba(15, 15, 15, 0.75);
+  color: rgba(26, 26, 26, 0.75);
 }
 
 .header-wrapper .disclosure__list-wrapper .disclosure__link:hover,
 .header-wrapper .disclosure__list-wrapper .disclosure__link:focus-visible,
 .header-wrapper .disclosure__list-wrapper .disclosure__link[aria-current='true'] {
-  color: rgb(15, 15, 15);
-  background-color: rgba(15, 15, 15, 0.06);
+  color: rgb(26, 26, 26);
+  background-color: rgba(26, 26, 26, 0.06);
 }
 
 /* Nav active + hover — Artist Gold accent on light header */
@@ -3656,8 +3660,8 @@ details-disclosure > details {
 .header__menu-item:focus-visible > .header__active-menu-item,
 .header__menu-item:hover,
 .header__menu-item:focus-visible {
-  color: rgb(232, 160, 32);
-  text-decoration-color: rgb(232, 160, 32);
+  color: rgb(232, 120, 109);
+  text-decoration-color: rgb(232, 120, 109);
 }
 
 /* Logo sizing — flipped to dark for off-white bg until a brand-correct dark SVG is uploaded */
@@ -3688,9 +3692,9 @@ details-disclosure > details {
   }
 }
 
-/* Hero placeholder — exact Deep Ink until real photography is added */
+/* Hero placeholder — Charcoal until real photography is added */
 .banner__media {
-  background-color: rgb(28, 28, 46);
+  background-color: rgb(26, 26, 26);
 }
 
 /* Hero heading — large editorial. White + text-shadow for legibility over photo. */
@@ -3717,19 +3721,37 @@ details-disclosure > details {
   margin-top: 32px;
 }
 
-/* Category tiles — label overlaid on bottom of image, centered.
-   Scoped to the homepage category_tiles section so process strip and other
-   multicolumn uses are untouched. */
-[id*="category_tiles"] .multicolumn-card {
+/* Capsule tiles — styled placeholder cards (no images yet).
+   When images are added, the .media container renders and overlaid labels activate. */
+[id*="capsule_tiles"] .multicolumn-card {
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+[id*="capsule_tiles"] .multicolumn-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(26, 26, 26, 0.15);
+}
+
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(1) .multicolumn-card { background-color: rgb(232, 120, 109); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(2) .multicolumn-card { background-color: rgb(26, 26, 26); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(3) .multicolumn-card { background-color: rgb(155, 139, 180); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(4) .multicolumn-card { background-color: rgb(122, 155, 138); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(5) .multicolumn-card { background-color: rgb(232, 227, 219); }
+
+[id*="capsule_tiles"] .multicolumn-list__item .media {
+  position: absolute;
+  inset: 0;
   overflow: hidden;
 }
 
-[id*="category_tiles"] .multicolumn-list__item .media {
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-}
-
-[id*="category_tiles"] .multicolumn-list__item .media img {
+[id*="capsule_tiles"] .multicolumn-list__item .media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -3737,73 +3759,74 @@ details-disclosure > details {
   transition: transform 0.5s ease;
 }
 
-/* Sharp corners — override Dawn's top-corner radius */
-[id*="category_tiles"] .multicolumn-card__image-wrapper {
-  position: relative;
+[id*="capsule_tiles"] .multicolumn-card:hover .media img {
+  transform: scale(1.05);
+}
+
+/* Sharp corners for image wrapper when images exist */
+[id*="capsule_tiles"] .multicolumn-card__image-wrapper {
+  position: absolute;
+  inset: 0;
   border-radius: 0;
   margin-bottom: 0;
 }
 
-/* Gradient scrim so the white label stays legible over any photo */
-[id*="category_tiles"] .multicolumn-card__image-wrapper::after {
+/* Gradient scrim for legibility */
+[id*="capsule_tiles"] .multicolumn-card::after {
   content: '';
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 45%;
-  background: linear-gradient(to top, rgba(15, 15, 15, 0.55) 0%, rgba(15, 15, 15, 0) 100%);
+  height: 50%;
+  background: linear-gradient(to top, rgba(26, 26, 26, 0.45) 0%, rgba(26, 26, 26, 0) 100%);
   pointer-events: none;
   z-index: 1;
+  border-radius: 0 0 8px 8px;
 }
 
-/* Label overlaid at the bottom of the image, centered */
-[id*="category_tiles"] .multicolumn-card__info {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 24px;
-  padding: 0 16px;
+/* Label at the bottom of the card */
+[id*="capsule_tiles"] .multicolumn-card__info {
+  position: relative;
+  padding: 24px 16px;
   text-align: center;
   z-index: 2;
 }
 
-[id*="category_tiles"] .multicolumn-card__info h3,
-[id*="category_tiles"] .multicolumn-card__info .h3 {
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+[id*="capsule_tiles"] .multicolumn-card__info h3,
+[id*="capsule_tiles"] .multicolumn-card__info .h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: rgb(255, 255, 255);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   margin: 0;
 }
 
-/* Hide the inline "Shop X →" link visually but keep it as a full-card
-   clickable overlay so the entire tile is the hit target. */
-[id*="category_tiles"] .multicolumn-card__info .link.animate-arrow {
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(5) .multicolumn-card__info h3 {
+  color: rgb(26, 26, 26);
+  text-shadow: none;
+}
+
+/* Hide the "Explore →" link text but keep full-card clickable */
+[id*="capsule_tiles"] .multicolumn-card__info .link.animate-arrow {
   font-size: 0;
   line-height: 0;
   margin: 0;
   color: transparent;
 }
 
-[id*="category_tiles"] .multicolumn-card__info .link.animate-arrow .svg-wrapper {
+[id*="capsule_tiles"] .multicolumn-card__info .link.animate-arrow .svg-wrapper {
   display: none;
 }
 
-[id*="category_tiles"] .multicolumn-card__info .link.animate-arrow::after {
+[id*="capsule_tiles"] .multicolumn-card__info .link.animate-arrow::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 3;
-}
-
-/* Subtle image zoom on hover; no card lift */
-
-[id*="category_tiles"] .multicolumn-card:hover .media img {
-  transform: scale(1.02);
 }
 
 
@@ -3830,7 +3853,7 @@ details-disclosure > details {
 }
 
 .card-wrapper:hover .card__inner {
-  box-shadow: 0 8px 24px rgba(28, 28, 46, 0.12);
+  box-shadow: 0 8px 24px rgba(26, 26, 26, 0.12);
 }
 
 .card__heading {
@@ -3838,7 +3861,7 @@ details-disclosure > details {
   font-size: 14px;
   font-weight: 500;
   margin-top: 12px;
-  color: rgb(28, 28, 46);
+  color: rgb(26, 26, 26);
 }
 
 .price__regular .price-item,
@@ -3846,19 +3869,20 @@ details-disclosure > details {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  color: rgb(28, 28, 46);
+  color: rgb(26, 26, 26);
 }
 
 .price__sale .price-item--sale {
-  color: rgb(212, 83, 58);
+  color: rgb(232, 120, 109);
 }
 
-/* Featured collection heading */
-.featured-collection .title {
-  font-family: 'Inter', sans-serif;
+/* Section headings */
+.featured-collection .title,
+[id*="capsule_tiles"] .title {
+  font-family: 'Playfair Display', serif;
   font-size: clamp(22px, 3vw, 32px);
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 48px;
@@ -3871,13 +3895,13 @@ details-disclosure > details {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgb(28, 28, 46);
+  color: rgb(26, 26, 26);
   text-underline-offset: 4px;
 }
 
 /* Brand story — image column placeholder (remove once real image is uploaded) */
 .image-with-text__media {
-  background-color: rgb(28, 28, 46);
+  background-color: rgb(26, 26, 26);
   min-height: 480px;
 }
 
@@ -3895,14 +3919,14 @@ details-disclosure > details {
   letter-spacing: 0.02em;
   line-height: 1.15;
   margin-bottom: 24px;
-  color: rgb(28, 28, 46);
+  color: rgb(26, 26, 26);
 }
 
 .image-with-text__content p {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   line-height: 1.75;
-  color: rgb(28, 28, 46);
+  color: rgb(26, 26, 26);
   opacity: 0.8;
   margin-bottom: 16px;
   max-width: 520px;
@@ -3910,14 +3934,14 @@ details-disclosure > details {
 
 /* Brand story — outlined secondary button */
 .image-with-text__content .button--secondary {
-  border: 2px solid rgb(28, 28, 46);
+  border: 2px solid rgb(26, 26, 26);
   background: transparent;
-  color: rgb(28, 28, 46);
+  color: rgb(26, 26, 26);
   margin-top: 8px;
 }
 
 .image-with-text__content .button--secondary:hover {
-  background-color: rgb(28, 28, 46);
+  background-color: rgb(26, 26, 26);
   color: rgb(255, 255, 255);
 }
 
@@ -3949,7 +3973,7 @@ details-disclosure > details {
   font-size: 40px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: rgb(232, 160, 32);
+  color: rgb(232, 120, 109);
   line-height: 1;
   margin-bottom: 20px;
 }
@@ -4023,9 +4047,9 @@ details-disclosure > details {
 }
 
 .newsletter__wrapper .newsletter-form__button {
-  background-color: rgb(232, 160, 32);
-  color: rgb(15, 15, 15);
-  border-color: rgb(232, 160, 32);
+  background-color: rgb(255, 255, 255);
+  color: rgb(26, 26, 26);
+  border-color: rgb(255, 255, 255);
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 600;
@@ -4036,7 +4060,7 @@ details-disclosure > details {
 
 .newsletter__wrapper .newsletter-form__button:hover {
   background-color: rgb(255, 255, 255);
-  color: rgb(15, 15, 15);
+  color: rgb(26, 26, 26);
   border-color: rgb(255, 255, 255);
 }
 
@@ -4283,4 +4307,54 @@ details-disclosure > details {
     background-color: rgb(var(--color-button));
     color: rgb(var(--color-button-text));
   }
+}
+
+/* SwaySculpt — Product page custom blocks */
+.product__size-guide-link {
+  display: inline-block;
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  color: rgba(var(--color-foreground), 0.7);
+  margin-bottom: 1rem;
+}
+
+.product__size-guide-link:hover {
+  color: rgb(var(--color-foreground));
+}
+
+.product__shipping-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.6rem;
+  padding: 1.2rem 1.6rem;
+  border: 1px solid rgba(var(--color-foreground), 0.1);
+  border-radius: 0.4rem;
+  font-size: 1.3rem;
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+.product__shipping-badge svg {
+  flex-shrink: 0;
+}
+
+/* SwaySculpt — Capsule tiles mobile */
+@media screen and (max-width: 749px) {
+  .multicolumn-list {
+    gap: 1rem;
+  }
+
+  .multicolumn-list__item {
+    width: calc(50% - 0.5rem) !important;
+  }
+}
+
+/* SwaySculpt — Announcement bar editorial */
+.announcement-bar__message {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1.1rem;
+  font-weight: 500;
 }

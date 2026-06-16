@@ -15,14 +15,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Wear the Art",
+            "heading": "WEAR YOUR VIBE",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Original wearable art prints",
+            "text": "APPAREL INSPIRED BY MOTION, CULTURE & CREATIVITY",
             "text_style": "subtitle"
           }
         },
@@ -44,7 +44,6 @@
         "button"
       ],
       "settings": {
-        "image_2": "shopify://shop_images/Untitled_design_2.png",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "image_behavior": "none",
@@ -53,75 +52,81 @@
         "show_text_box": false,
         "color_scheme": "scheme-3",
         "stack_images_on_mobile": false,
-        "mobile_content_alignment": "left",
+        "mobile_content_alignment": "center",
         "show_text_below": false
       }
     },
-    "category_tiles": {
+    "capsule_tiles": {
       "type": "multicolumn",
       "blocks": {
-        "men": {
+        "capsule-1": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/man_wearing_t_shirt.png",
-            "title": "Men",
+            "title": "Back to Motion",
             "text": "",
-            "link_label": "Shop Men",
-            "link": "/collections/men"
+            "link_label": "Explore",
+            "link": "/collections/all"
           }
         },
-        "women": {
+        "capsule-2": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/collection_woman_dress_41503c70-13b4-4bef-b751-b9fb8bb1ddc6.png",
-            "title": "Women",
+            "title": "Urban Shadows",
             "text": "",
-            "link_label": "Shop Women",
-            "link": "/collections/women"
+            "link_label": "Explore",
+            "link": "/collections/all"
           }
         },
-        "kids": {
+        "capsule-3": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/collection_kids_bottoms_89345a20-c75e-4268-8d77-db0eafb81ba4.png",
-            "title": "Kids",
+            "title": "Retro Revival",
             "text": "",
-            "link_label": "Shop Kids",
-            "link": "/collections/kids"
+            "link_label": "Explore",
+            "link": "/collections/all"
           }
         },
-        "accessories": {
+        "capsule-4": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/collection_accesories_backpacks.png",
-            "title": "Accessories",
+            "title": "Neon Drift",
             "text": "",
-            "link_label": "Shop Accessories",
-            "link": "/collections/accessories"
+            "link_label": "Explore",
+            "link": "/collections/all"
+          }
+        },
+        "capsule-5": {
+          "type": "column",
+          "settings": {
+            "title": "Slow Bloom",
+            "text": "",
+            "link_label": "Explore",
+            "link": "/collections/all"
           }
         }
       },
       "block_order": [
-        "men",
-        "women",
-        "kids",
-        "accessories"
+        "capsule-1",
+        "capsule-2",
+        "capsule-3",
+        "capsule-4",
+        "capsule-5"
       ],
       "settings": {
-        "title": "",
+        "title": "EXPLORE OUR CAPSULES",
         "heading_size": "h2",
         "image_width": "full",
-        "image_ratio": "square",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 4,
+        "image_ratio": "portrait",
+        "button_label": "View All Capsules",
+        "button_link": "shopify://collections",
+        "columns_desktop": 5,
         "column_alignment": "center",
         "background_style": "none",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 60,
-        "padding_bottom": 36
+        "swipe_on_mobile": true,
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "featured_collection": {
@@ -129,93 +134,12 @@
       "settings": {
         "collection": "all",
         "products_to_show": 8,
-        "title": "The Collection",
+        "title": "New In",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "columns_desktop": 3,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "link",
-        "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
-    "process-strip": {
-      "type": "multicolumn",
-      "blocks": {
-        "step-1": {
-          "type": "column",
-          "settings": {
-            "title": "Designed Here",
-            "text": "<p>Original artwork and graphics, made in-house.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "step-2": {
-          "type": "column",
-          "settings": {
-            "title": "Crafted to Order",
-            "text": "<p>Each piece is made when you order.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "step-3": {
-          "type": "column",
-          "settings": {
-            "title": "Shipped to You",
-            "text": "<p>Delivered to your door in 5–10 business days.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "step-1",
-        "step-2",
-        "step-3"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-4",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
-    "new_arrivals": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "accessories-backpacks",
-        "products_to_show": 8,
-        "title": "New Arrivals",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
@@ -269,10 +193,8 @@
   },
   "order": [
     "image_banner",
-    "category_tiles",
+    "capsule_tiles",
     "featured_collection",
-    "process-strip",
-    "new_arrivals",
     "newsletter"
   ]
 }

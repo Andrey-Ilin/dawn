@@ -5,16 +5,24 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "footer-0": {
+        "footer-shop": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
+            "heading": "Shop",
             "menu": "footer"
+          }
+        },
+        "footer-help": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Help",
+            "menu": "footer-help"
           }
         }
       },
       "block_order": [
-        "footer-0"
+        "footer-shop",
+        "footer-help"
       ],
       "settings": {
         "color_scheme": "scheme-1",

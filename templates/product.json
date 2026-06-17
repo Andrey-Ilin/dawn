@@ -61,12 +61,9 @@
           "settings": {}
         },
         "material_care": {
-          "type": "collapsible_tab",
+          "type": "custom_liquid",
           "settings": {
-            "heading": "Material / care",
-            "icon": "leather",
-            "content": "",
-            "page": ""
+            "custom_liquid": "{% render 'product-material-care', product_type: product.type %}"
           }
         }
       },

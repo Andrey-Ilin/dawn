@@ -65,7 +65,7 @@
             "title": "Back to Motion",
             "text": "",
             "link_label": "Explore",
-            "link": "/collections/all"
+            "link": "/collections/back-to-motion"
           }
         },
         "capsule-2": {
@@ -74,7 +74,7 @@
             "title": "Urban Shadows",
             "text": "",
             "link_label": "Explore",
-            "link": "/collections/all"
+            "link": "/collections/urban-shadows"
           }
         },
         "capsule-3": {
@@ -83,7 +83,7 @@
             "title": "Retro Revival",
             "text": "",
             "link_label": "Explore",
-            "link": "/collections/all"
+            "link": "/collections/retro-revival"
           }
         },
         "capsule-4": {
@@ -92,7 +92,7 @@
             "title": "Neon Drift",
             "text": "",
             "link_label": "Explore",
-            "link": "/collections/all"
+            "link": "/collections/neon-drift"
           }
         },
         "capsule-5": {
@@ -101,7 +101,7 @@
             "title": "Slow Bloom",
             "text": "",
             "link_label": "Explore",
-            "link": "/collections/all"
+            "link": "/collections/slow-bloom"
           }
         }
       },
@@ -157,6 +157,87 @@
         "padding_bottom": 80
       }
     },
+    "process_strip": {
+      "type": "multicolumn",
+      "blocks": {
+        "col-1": {
+          "type": "column",
+          "settings": {
+            "title": "Designed Here",
+            "text": "<p>Original artwork and graphics made in-house.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "col-2": {
+          "type": "column",
+          "settings": {
+            "title": "Crafted to Order",
+            "text": "<p>Each piece is made when you order.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "col-3": {
+          "type": "column",
+          "settings": {
+            "title": "Shipped to You",
+            "text": "<p>Delivered to your door in 5–10 days.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "col-1",
+        "col-2",
+        "col-3"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-4",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "city_series": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "city-series",
+        "products_to_show": 8,
+        "title": "City Series",
+        "heading_size": "h2",
+        "description": "<p>Urban-inspired drops from cities around the world.</p>",
+        "show_description": true,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "button",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "newsletter": {
       "type": "newsletter",
       "blocks": {
@@ -195,6 +276,8 @@
     "image_banner",
     "capsule_tiles",
     "featured_collection",
+    "process_strip",
+    "city_series",
     "newsletter"
   ]
 }

@@ -293,6 +293,16 @@ h5,
   }
 }
 
+.shopify-policy__title h1 {
+  font-size: calc(var(--font-heading-scale) * 4rem);
+}
+
+@media only screen and (min-width: 750px) {
+  .shopify-policy__title h1 {
+    font-size: calc(var(--font-heading-scale) * 5.2rem);
+  }
+}
+
 h1,
 .h1 {
   font-size: calc(var(--font-heading-scale) * 3rem);
@@ -3196,6 +3206,10 @@ details-disclosure > details {
 
 .rte blockquote > * {
   margin: -0.5rem 0 -0.5rem 0;
+}
+
+.rte span[style*="color"] {
+  color: inherit !important;
 }
 
 /* Image mask global styles */

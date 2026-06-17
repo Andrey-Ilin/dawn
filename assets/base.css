@@ -3638,7 +3638,7 @@ details-disclosure > details {
   --font-body-style: normal;
   --font-body-weight: 400;
   --font-body-weight-bold: 700;
-  --font-heading-family: 'Playfair Display', serif;
+  --font-heading-family: 'Inter', sans-serif;
   --font-heading-style: normal;
   --font-heading-weight: 700;
 }
@@ -3713,7 +3713,7 @@ details-disclosure > details {
 
 /* Hero heading — large editorial. White + text-shadow for legibility over photo. */
 .banner__heading {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: clamp(42px, 7vw, 72px);
   line-height: 1.05;
@@ -3727,7 +3727,7 @@ details-disclosure > details {
   font-size: clamp(16px, 2vw, 20px);
   opacity: 0.85;
   max-width: 520px;
-  margin-top: 16px;
+  margin: 16px auto 0;
 }
 
 /* Hero CTA button */
@@ -3809,7 +3809,7 @@ details-disclosure > details {
 
 [id*="capsule_tiles"] .multicolumn-card__info h3,
 [id*="capsule_tiles"] .multicolumn-card__info .h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -3893,7 +3893,7 @@ details-disclosure > details {
 /* Section headings */
 .featured-collection .title,
 [id*="capsule_tiles"] .title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(22px, 3vw, 32px);
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -4131,7 +4131,7 @@ details-disclosure > details {
 }
 
 .size-guide__heading {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 2.8rem;
   font-weight: 700;
   margin: 0 0 1.6rem;

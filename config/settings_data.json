@@ -10,7 +10,7 @@
 {
   "current": {
     "logo": "shopify://shop_images/logo_black.png",
-    "logo_width": 120,
+    "logo_width": 200,
     "favicon": "shopify://shop_images/favicon_512x512_1.svg",
     "type_header_font": "assistant_n4",
     "heading_scale": 100,

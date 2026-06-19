@@ -44,6 +44,7 @@
         "button"
       ],
       "settings": {
+        "image": "shopify://shop_images/Tropical_Sunset_Banner_Retro_Luxury.png",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "image_behavior": "none",

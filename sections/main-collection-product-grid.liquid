@@ -158,6 +158,10 @@
                 {%- if forloop.index > 2 -%}
                   {%- assign lazy_load = true -%}
                 {%- endif -%}
+                {% assign fetch_priority_high = false %}
+                {%- if forloop.index == 1 -%}
+                  {%- assign fetch_priority_high = true -%}
+                {%- endif -%}
                 <li
                   class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                   {% if settings.animations_reveal_on_scroll %}
@@ -173,6 +177,7 @@
                     show_vendor: section.settings.show_vendor,
                     show_rating: section.settings.show_rating,
                     lazy_load: lazy_load,
+                    fetch_priority_high: fetch_priority_high,
                     skip_styles: skip_card_product_styles,
                     quick_add: section.settings.quick_add,
                     section_id: section.id

@@ -126,6 +126,10 @@
               {% if lazy_load == false and forloop.index > max_columns_to_show %}
                 {% assign lazy_load = true %}
               {% endif %}
+              {% assign fetch_priority_high = false %}
+              {%- if forloop.index == 1 -%}
+                {%- assign fetch_priority_high = true -%}
+              {%- endif -%}
               <li
                 id="Slide-{{ section.id }}-{{ forloop.index }}"
                 class="grid__item{% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -139,6 +143,7 @@
                   media_aspect_ratio: section.settings.image_ratio,
                   image_shape: section.settings.image_shape,
                   lazy_load: lazy_load,
+                  fetch_priority_high: fetch_priority_high,
                   show_secondary_image: section.settings.show_secondary_image,
                   show_vendor: section.settings.show_vendor,
                   show_rating: section.settings.show_rating,

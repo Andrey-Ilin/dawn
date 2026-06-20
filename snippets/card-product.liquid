@@ -61,6 +61,7 @@
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
             <div class="media media--transparent media--hover-effect">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+              {%- assign card_image_cap = card_product.featured_media.width | at_most: 1500 -%}
               <img
                 srcset="
                   {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -69,21 +70,26 @@
                   {%- if card_product.featured_media.width >= 720 -%}{{ card_product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
                   {%- if card_product.featured_media.width >= 940 -%}{{ card_product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
                   {%- if card_product.featured_media.width >= 1066 -%}{{ card_product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
-                  {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
+                  {%- if card_product.featured_media.width >= 1500 -%}{{ card_product.featured_media | image_url: width: 1500 }} 1500w,{%- endif -%}
+                  {{ card_product.featured_media | image_url: width: card_image_cap }} {{ card_image_cap }}w
                 "
                 src="{{ card_product.featured_media | image_url: width: 533 }}"
                 sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
                 alt="{{ card_product.featured_media.alt | escape }}"
                 class="motion-reduce"
-                {% unless lazy_load == false %}
+                {%- if lazy_load == false -%}
+                  loading="eager"
+                  {%- if fetch_priority_high -%} fetchpriority="high"{%- endif -%}
+                {%- else -%}
                   loading="lazy"
-                {% endunless %}
+                {%- endif -%}
                 width="{{ card_product.featured_media.width }}"
                 height="{{ card_product.featured_media.height }}"
               >
               {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
 
               {%- if card_product.media[1] != null and show_secondary_image -%}
+                {%- assign card_image_2_cap = card_product.media[1].width | at_most: 1500 -%}
                 <img
                   srcset="
                     {%- if card_product.media[1].width >= 165 -%}{{ card_product.media[1] | image_url: width: 165 }} 165w,{%- endif -%}
@@ -92,7 +98,8 @@
                     {%- if card_product.media[1].width >= 720 -%}{{ card_product.media[1] | image_url: width: 720 }} 720w,{%- endif -%}
                     {%- if card_product.media[1].width >= 940 -%}{{ card_product.media[1] | image_url: width: 940 }} 940w,{%- endif -%}
                     {%- if card_product.media[1].width >= 1066 -%}{{ card_product.media[1] | image_url: width: 1066 }} 1066w,{%- endif -%}
-                    {{ card_product.media[1] | image_url }} {{ card_product.media[1].width }}w
+                    {%- if card_product.media[1].width >= 1500 -%}{{ card_product.media[1] | image_url: width: 1500 }} 1500w,{%- endif -%}
+                    {{ card_product.media[1] | image_url: width: card_image_2_cap }} {{ card_image_2_cap }}w
                   "
                   src="{{ card_product.media[1] | image_url: width: 533 }}"
                   sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
@@ -472,6 +479,7 @@
                           >
                             <div class="quick-add__product-container global-media-settings">
                               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+                              {%- assign card_image_modal_cap = card_product.featured_media.width | at_most: 1500 -%}
                               <img
                                 srcset="
                                   {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -480,7 +488,8 @@
                                   {%- if card_product.featured_media.width >= 720 -%}{{ card_product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
                                   {%- if card_product.featured_media.width >= 940 -%}{{ card_product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
                                   {%- if card_product.featured_media.width >= 1066 -%}{{ card_product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
-                                  {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
+                                  {%- if card_product.featured_media.width >= 1500 -%}{{ card_product.featured_media | image_url: width: 1500 }} 1500w,{%- endif -%}
+                                  {{ card_product.featured_media | image_url: width: card_image_modal_cap }} {{ card_image_modal_cap }}w
                                 "
                                 src="{{ card_product.featured_media | image_url: width: 533 }}"
                                 sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"

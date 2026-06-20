@@ -63,14 +63,31 @@
         "capsule-1": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/music_puls.png",
-            "title": "Back to Motion",
+            "title": "Summer Motion",
             "text": "",
             "link_label": "Explore",
-            "link": "/collections/back-to-motion"
+            "link": "/collections/summer-motions"
           }
         },
         "capsule-2": {
+          "type": "column",
+          "settings": {
+            "title": "Back To Street",
+            "text": "",
+            "link_label": "Explore",
+            "link": "/collections/back-to-street"
+          }
+        },
+        "capsule-3": {
+          "type": "column",
+          "settings": {
+            "title": "Art In Motion",
+            "text": "",
+            "link_label": "Explore",
+            "link": "/collections/art-in-motion"
+          }
+        },
+        "capsule-4": {
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/urban_shadows.png",
@@ -80,33 +97,41 @@
             "link": "/collections/urban-shadows"
           }
         },
-        "capsule-3": {
+        "capsule-5": {
+          "type": "column",
+          "settings": {
+            "title": "Warm Layers",
+            "text": "",
+            "link_label": "Explore",
+            "link": "/collections/warm-layers"
+          }
+        },
+        "capsule-6": {
+          "type": "column",
+          "settings": {
+            "title": "Retro Winter",
+            "text": "",
+            "link_label": "Explore",
+            "link": "/collections/retro-winter"
+          }
+        },
+        "capsule-7": {
+          "type": "column",
+          "settings": {
+            "title": "Music Pulse",
+            "text": "",
+            "link_label": "Explore",
+            "link": "/collections/music-pulse"
+          }
+        },
+        "capsule-8": {
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/retro_revival.png",
             "title": "Retro Revival",
             "text": "",
             "link_label": "Explore",
-            "link": "/collections/retro-revival"
-          }
-        },
-        "capsule-4": {
-          "type": "column",
-          "settings": {
-            "title": "Neon Drift",
-            "text": "",
-            "link_label": "Explore",
-            "link": "/collections/neon-drift"
-          }
-        },
-        "capsule-5": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/summer_motion.png",
-            "title": "Slow Bloom",
-            "text": "",
-            "link_label": "Explore",
-            "link": "/collections/slow-bloom"
+            "link": "/collections/retro-revival-1"
           }
         }
       },
@@ -115,16 +140,19 @@
         "capsule-2",
         "capsule-3",
         "capsule-4",
-        "capsule-5"
+        "capsule-5",
+        "capsule-6",
+        "capsule-7",
+        "capsule-8"
       ],
       "settings": {
         "title": "EXPLORE OUR CAPSULES",
         "heading_size": "h2",
         "image_width": "full",
-        "image_ratio": "portrait",
+        "image_ratio": "square",
         "button_label": "View All Capsules",
         "button_link": "shopify://collections",
-        "columns_desktop": 5,
+        "columns_desktop": 4,
         "column_alignment": "center",
         "background_style": "none",
         "color_scheme": "scheme-2",

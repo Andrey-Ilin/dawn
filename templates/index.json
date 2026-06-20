@@ -73,6 +73,7 @@
         "capsule-2": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/urban_shadows.png",
             "title": "Urban Shadows",
             "text": "",
             "link_label": "Explore",
@@ -82,6 +83,7 @@
         "capsule-3": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/retro_revival.png",
             "title": "Retro Revival",
             "text": "",
             "link_label": "Explore",

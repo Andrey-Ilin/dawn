@@ -3622,18 +3622,20 @@ details-disclosure > details {
 
 /* Color tokens — override Liquid-generated scheme values */
 :root {
-  --color-background: 255, 248, 240;            /* Off-White #FFF8F0 */
+  --color-background: 247, 246, 243;            /* Ivory Mist #F7F6F3 */
   --color-foreground: 26, 26, 26;               /* Charcoal Black #1A1A1A */
-  --color-background-contrast: 232, 227, 219;   /* Soft Beige #E8E3DB */
+  --color-background-contrast: 237, 232, 227;   /* Soft Beige #EDE8E3 */
   --color-shadow: 26, 26, 26;
-  --color-button: 232, 120, 109;                /* Soft Coral #E8786D */
+  --color-button: 245, 108, 108;                /* Soft Coral Glow #F56C6C */
   --color-button-text: 255, 255, 255;           /* White on coral buttons */
   --color-secondary-button: 26, 26, 26;
   --color-secondary-button-text: 255, 255, 255;
   --color-link: 26, 26, 26;
   --color-badge-foreground: 255, 255, 255;
-  --color-badge-background: 232, 120, 109;      /* Soft Coral #E8786D */
-  --color-badge-border: 232, 120, 109;
+  --color-badge-background: 245, 108, 108;      /* Soft Coral Glow #F56C6C */
+  --color-badge-border: 245, 108, 108;
+  --color-accent-lavender: 176, 168, 209;       /* Muted Lavender #B0A8D1 */
+  --color-accent-sage: 151, 198, 128;           /* Electric Sage #97C680 */
 
   /* Typography — override Liquid-generated font vars with SwaySculpt brand fonts */
   --font-heading-family: 'Montserrat', sans-serif;
@@ -3654,9 +3656,9 @@ details-disclosure > details {
   --font-accent-weight: 400;
 }
 
-/* Header — Off-White background */
+/* Header — tracks scheme-1's background so it can't drift out of sync */
 .header-wrapper {
-  background-color: rgb(255, 248, 240) !important;
+  background-color: rgb(var(--color-background)) !important;
 }
 
 .header__heading-link,
@@ -3685,8 +3687,8 @@ details-disclosure > details {
 .header__menu-item:focus-visible > .header__active-menu-item,
 .header__menu-item:hover,
 .header__menu-item:focus-visible {
-  color: rgb(232, 120, 109);
-  text-decoration-color: rgb(232, 120, 109);
+  color: rgb(245, 108, 108);
+  text-decoration-color: rgb(245, 108, 108);
 }
 
 /* Logo sizing — flipped to dark for off-white bg until a brand-correct dark SVG is uploaded */
@@ -3770,14 +3772,14 @@ details-disclosure > details {
   margin-bottom: 0;
 }
 
-[id*="capsule_tiles"] .multicolumn-list__item:nth-child(1) .multicolumn-card__image-wrapper { background-color: rgb(232, 120, 109); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(1) .multicolumn-card__image-wrapper { background-color: rgb(245, 108, 108); }
 [id*="capsule_tiles"] .multicolumn-list__item:nth-child(2) .multicolumn-card__image-wrapper { background-color: rgb(26, 26, 26); }
-[id*="capsule_tiles"] .multicolumn-list__item:nth-child(3) .multicolumn-card__image-wrapper { background-color: rgb(155, 139, 180); }
-[id*="capsule_tiles"] .multicolumn-list__item:nth-child(4) .multicolumn-card__image-wrapper { background-color: rgb(122, 155, 138); }
-[id*="capsule_tiles"] .multicolumn-list__item:nth-child(5) .multicolumn-card__image-wrapper { background-color: rgb(232, 227, 219); }
-[id*="capsule_tiles"] .multicolumn-list__item:nth-child(6) .multicolumn-card__image-wrapper { background-color: rgb(232, 120, 109); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(3) .multicolumn-card__image-wrapper { background-color: rgb(var(--color-accent-lavender)); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(4) .multicolumn-card__image-wrapper { background-color: rgb(var(--color-accent-sage)); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(5) .multicolumn-card__image-wrapper { background-color: rgb(237, 232, 227); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(6) .multicolumn-card__image-wrapper { background-color: rgb(245, 108, 108); }
 [id*="capsule_tiles"] .multicolumn-list__item:nth-child(7) .multicolumn-card__image-wrapper { background-color: rgb(26, 26, 26); }
-[id*="capsule_tiles"] .multicolumn-list__item:nth-child(8) .multicolumn-card__image-wrapper { background-color: rgb(155, 139, 180); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(8) .multicolumn-card__image-wrapper { background-color: rgb(var(--color-accent-lavender)); }
 
 [id*="capsule_tiles"] .multicolumn-list__item .media {
   position: absolute;
@@ -3876,7 +3878,7 @@ details-disclosure > details {
 }
 
 .price__sale .price-item--sale {
-  color: rgb(232, 120, 109);
+  color: rgb(245, 108, 108);
 }
 
 /* Section headings */
@@ -3976,7 +3978,7 @@ details-disclosure > details {
   font-size: 40px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: rgb(232, 120, 109);
+  color: rgb(245, 108, 108);
   line-height: 1;
   margin-bottom: 20px;
 }
@@ -4009,14 +4011,14 @@ details-disclosure > details {
   }
 }
 
-/* Newsletter — coral bg from color-scheme-5; force full-white text + gold CTA */
+/* Newsletter — Muted Lavender bg from color-scheme-6; charcoal text + coral CTA */
 .newsletter__wrapper h2,
 .newsletter__wrapper .h2 {
   font-family: var(--font-heading-family);
   font-size: clamp(24px, 3vw, 36px);
   font-weight: var(--font-heading-weight);
   letter-spacing: 0.04em;
-  color: rgb(255, 255, 255);
+  color: rgb(26, 26, 26);
   margin-bottom: 12px;
 }
 
@@ -4024,8 +4026,8 @@ details-disclosure > details {
 .newsletter__wrapper .newsletter__subheading p {
   font-family: var(--font-body-family);
   font-size: 16px;
-  color: rgb(255, 255, 255);
-  opacity: 1;
+  color: rgb(26, 26, 26);
+  opacity: 0.75;
   margin-bottom: 32px;
   max-width: 480px;
   margin-left: auto;
@@ -4033,26 +4035,26 @@ details-disclosure > details {
 }
 
 .newsletter__wrapper .field__input {
-  border: 2px solid rgb(255, 255, 255);
+  border: 2px solid rgb(26, 26, 26);
   background: transparent;
-  color: rgb(255, 255, 255);
+  color: rgb(26, 26, 26);
   font-family: var(--font-body-family);
   font-size: 15px;
 }
 
 .newsletter__wrapper .field__input::placeholder {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(26, 26, 26, 0.6);
 }
 
 .newsletter__wrapper .field__input:focus {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(26, 26, 26, 0.08);
   outline: none;
 }
 
 .newsletter__wrapper .newsletter-form__button {
-  background-color: rgb(255, 255, 255);
-  color: rgb(26, 26, 26);
-  border-color: rgb(255, 255, 255);
+  background-color: rgb(245, 108, 108);
+  color: rgb(255, 255, 255);
+  border-color: rgb(245, 108, 108);
   font-family: var(--font-subheading-family);
   font-size: 13px;
   font-weight: 600;
@@ -4062,9 +4064,9 @@ details-disclosure > details {
 }
 
 .newsletter__wrapper .newsletter-form__button:hover {
-  background-color: rgb(255, 255, 255);
-  color: rgb(26, 26, 26);
-  border-color: rgb(255, 255, 255);
+  background-color: rgb(26, 26, 26);
+  color: rgb(255, 255, 255);
+  border-color: rgb(26, 26, 26);
 }
 
 /* Secondary button — 2px solid border per spec §4 */
@@ -4199,7 +4201,7 @@ details-disclosure > details {
   width: 0.4rem;
   height: 0.4rem;
   border-radius: 50%;
-  background-color: rgb(var(--color-button));
+  background-color: rgb(var(--color-accent-sage));
   flex-shrink: 0;
 }
 

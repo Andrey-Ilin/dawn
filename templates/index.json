@@ -63,6 +63,7 @@
         "capsule-1": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/summer_motion.png",
             "title": "Summer Motion",
             "text": "",
             "link_label": "Explore",
@@ -72,6 +73,7 @@
         "capsule-2": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/back_to_street.png",
             "title": "Back To Street",
             "text": "",
             "link_label": "Explore",
@@ -81,6 +83,7 @@
         "capsule-3": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/art_in_motion.png",
             "title": "Art In Motion",
             "text": "",
             "link_label": "Explore",
@@ -100,6 +103,7 @@
         "capsule-5": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/warm_layers.png",
             "title": "Warm Layers",
             "text": "",
             "link_label": "Explore",
@@ -109,6 +113,7 @@
         "capsule-6": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/retro_winter.png",
             "title": "Retro Winter",
             "text": "",
             "link_label": "Explore",
@@ -118,6 +123,7 @@
         "capsule-7": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/music_puls.png",
             "title": "Music Pulse",
             "text": "",
             "link_label": "Explore",

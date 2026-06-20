@@ -3735,29 +3735,36 @@ details-disclosure > details {
   margin-top: 32px;
 }
 
-/* Capsule tiles — styled placeholder cards (no images yet).
-   When images are added, the .media container renders and overlaid labels activate. */
+/* Capsule tiles — square image, caption below, no overlay. */
 [id*="capsule_tiles"] .multicolumn-card {
-  overflow: hidden;
-  position: relative;
-  border-radius: 8px;
-  aspect-ratio: 4 / 5;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-direction: column;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 [id*="capsule_tiles"] .multicolumn-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(26, 26, 26, 0.15);
 }
 
-[id*="capsule_tiles"] .multicolumn-list__item:nth-child(1) .multicolumn-card { background-color: rgb(232, 120, 109); }
-[id*="capsule_tiles"] .multicolumn-list__item:nth-child(2) .multicolumn-card { background-color: rgb(26, 26, 26); }
-[id*="capsule_tiles"] .multicolumn-list__item:nth-child(3) .multicolumn-card { background-color: rgb(155, 139, 180); }
-[id*="capsule_tiles"] .multicolumn-list__item:nth-child(4) .multicolumn-card { background-color: rgb(122, 155, 138); }
-[id*="capsule_tiles"] .multicolumn-list__item:nth-child(5) .multicolumn-card { background-color: rgb(232, 227, 219); }
+[id*="capsule_tiles"] .multicolumn-card__image-wrapper {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(1) .multicolumn-card__image-wrapper { background-color: rgb(232, 120, 109); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(2) .multicolumn-card__image-wrapper { background-color: rgb(26, 26, 26); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(3) .multicolumn-card__image-wrapper { background-color: rgb(155, 139, 180); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(4) .multicolumn-card__image-wrapper { background-color: rgb(122, 155, 138); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(5) .multicolumn-card__image-wrapper { background-color: rgb(232, 227, 219); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(6) .multicolumn-card__image-wrapper { background-color: rgb(232, 120, 109); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(7) .multicolumn-card__image-wrapper { background-color: rgb(26, 26, 26); }
+[id*="capsule_tiles"] .multicolumn-list__item:nth-child(8) .multicolumn-card__image-wrapper { background-color: rgb(155, 139, 180); }
 
 [id*="capsule_tiles"] .multicolumn-list__item .media {
   position: absolute;
@@ -3777,34 +3784,10 @@ details-disclosure > details {
   transform: scale(1.05);
 }
 
-/* Sharp corners for image wrapper when images exist */
-[id*="capsule_tiles"] .multicolumn-card__image-wrapper {
-  position: absolute;
-  inset: 0;
-  border-radius: 0;
-  margin-bottom: 0;
-}
-
-/* Gradient scrim for legibility */
-[id*="capsule_tiles"] .multicolumn-card::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 50%;
-  background: linear-gradient(to top, rgba(26, 26, 26, 0.45) 0%, rgba(26, 26, 26, 0) 100%);
-  pointer-events: none;
-  z-index: 1;
-  border-radius: 0 0 8px 8px;
-}
-
-/* Label at the bottom of the card */
+/* Caption below the image */
 [id*="capsule_tiles"] .multicolumn-card__info {
-  position: relative;
-  padding: 24px 16px;
+  padding: 16px 8px 0;
   text-align: center;
-  z-index: 2;
 }
 
 [id*="capsule_tiles"] .multicolumn-card__info h3,
@@ -3814,14 +3797,7 @@ details-disclosure > details {
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgb(255, 255, 255);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   margin: 0;
-}
-
-[id*="capsule_tiles"] .multicolumn-list__item:nth-child(5) .multicolumn-card__info h3 {
-  color: rgb(26, 26, 26);
-  text-shadow: none;
 }
 
 /* Hide the "Explore →" link text but keep full-card clickable */

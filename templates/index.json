@@ -63,6 +63,7 @@
         "capsule-1": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/music_puls.png",
             "title": "Back to Motion",
             "text": "",
             "link_label": "Explore",
@@ -99,6 +100,7 @@
         "capsule-5": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/summer_motion.png",
             "title": "Slow Bloom",
             "text": "",
             "link_label": "Explore",

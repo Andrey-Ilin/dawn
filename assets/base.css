@@ -3656,6 +3656,11 @@ details-disclosure > details {
   --font-accent-weight: 400;
 }
 
+/* Smooth in-page jumps (e.g. hero "Explore Capsules" → capsule tiles anchor) */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Header — tracks scheme-1's background so it can't drift out of sync */
 .header-wrapper {
   background-color: rgb(var(--color-background)) !important;
@@ -3737,17 +3742,38 @@ details-disclosure > details {
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
 }
 
-/* Hero subheading */
+/* Hero subheading — text-shadow (not opacity) carries contrast over the photo,
+   since lighter regions of the image wash out a translucent near-white. */
 .banner__content .banner__text {
   font-size: clamp(16px, 2vw, 20px);
-  opacity: 0.85;
+  opacity: 1;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
   max-width: 520px;
-  margin: 16px auto 0;
+  margin: 16px 0 0;
 }
 
 /* Hero CTA button */
 .banner__content .button {
   margin-top: 32px;
+}
+
+/* Hero — re-center content on tablet; Dawn's own breakpoints only split at
+   749px (mobile) and 750px (desktop), so bottom-left/left from the section
+   settings would otherwise carry into tablet widths too. */
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  [id*="image_banner"] .banner__content.banner__content--bottom-left {
+    align-items: center;
+    justify-content: center;
+  }
+
+  [id*="image_banner"].banner--content-align-left .banner__box {
+    text-align: center;
+  }
+
+  [id*="image_banner"] .banner__buttons--multiple > * {
+    flex-grow: 1;
+    min-width: 22rem;
+  }
 }
 
 /* Capsule tiles — square image, caption below, no overlay. */

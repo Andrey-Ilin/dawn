@@ -118,11 +118,12 @@
                     {% endcapture %}
                     {{
                       block.settings.image
-                      | image_url: width: 3200
+                      | image_url: width: 1500
                       | image_tag:
-                        widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+                        widths: '165, 360, 533, 720, 940, 1066, 1500',
                         sizes: sizes,
-                        class: 'multicolumn-card__image'
+                        class: 'multicolumn-card__image',
+                        loading: 'lazy'
                     }}
                   </div>
                 </div>

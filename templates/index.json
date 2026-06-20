@@ -211,8 +211,8 @@
         "col-2": {
           "type": "column",
           "settings": {
-            "title": "Crafted to Order",
-            "text": "<p>Each piece is made when you order.</p>",
+            "title": "Quality Checked",
+            "text": "<p>Every order is inspected before it ships.</p>",
             "link_label": "",
             "link": ""
           }

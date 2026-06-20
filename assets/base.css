@@ -366,7 +366,9 @@ h6,
 }
 
 blockquote {
-  font-style: italic;
+  font-family: var(--font-accent-family);
+  font-style: var(--font-accent-style);
+  font-weight: var(--font-accent-weight);
   color: rgba(var(--color-foreground), 0.75);
   border-left: 0.2rem solid rgba(var(--color-foreground), 0.2);
   padding-left: 1rem;
@@ -3633,14 +3635,23 @@ details-disclosure > details {
   --color-badge-background: 232, 120, 109;      /* Soft Coral #E8786D */
   --color-badge-border: 232, 120, 109;
 
-  /* Typography — override Liquid-generated font vars */
-  --font-body-family: 'Inter', sans-serif;
+  /* Typography — override Liquid-generated font vars with SwaySculpt brand fonts */
+  --font-heading-family: 'Montserrat', sans-serif;
+  --font-heading-style: normal;
+  --font-heading-weight: 800;
+
+  --font-subheading-family: 'Lato', sans-serif;
+  --font-subheading-style: normal;
+  --font-subheading-weight: 700;
+
+  --font-body-family: 'Open Sans', sans-serif;
   --font-body-style: normal;
   --font-body-weight: 400;
   --font-body-weight-bold: 700;
-  --font-heading-family: 'Inter', sans-serif;
-  --font-heading-style: normal;
-  --font-heading-weight: 700;
+
+  --font-accent-family: 'Playfair Display', serif;
+  --font-accent-style: italic;
+  --font-accent-weight: 400;
 }
 
 /* Header — Off-White background */
@@ -3692,7 +3703,9 @@ details-disclosure > details {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-size: 13px;
-  font-weight: 600;
+  font-family: var(--font-subheading-family);
+  font-style: var(--font-subheading-style);
+  font-weight: 700;
 }
 
 /* Hero banner height — 90vh desktop / 70vh mobile per spec §4.2 */
@@ -3713,8 +3726,8 @@ details-disclosure > details {
 
 /* Hero heading — large editorial. White + text-shadow for legibility over photo. */
 .banner__heading {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
   font-size: clamp(42px, 7vw, 72px);
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -3792,7 +3805,7 @@ details-disclosure > details {
 
 [id*="capsule_tiles"] .multicolumn-card__info h3,
 [id*="capsule_tiles"] .multicolumn-card__info .h3 {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-subheading-family);
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -3847,7 +3860,7 @@ details-disclosure > details {
 }
 
 .card__heading {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-subheading-family);
   font-size: 14px;
   font-weight: 500;
   margin-top: 12px;
@@ -3856,7 +3869,7 @@ details-disclosure > details {
 
 .price__regular .price-item,
 .price__sale .price-item {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body-family);
   font-size: 14px;
   font-weight: 600;
   color: rgb(26, 26, 26);
@@ -3869,9 +3882,9 @@ details-disclosure > details {
 /* Section headings */
 .featured-collection .title,
 [id*="capsule_tiles"] .title {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-heading-family);
   font-size: clamp(22px, 3vw, 32px);
-  font-weight: 700;
+  font-weight: var(--font-heading-weight);
   letter-spacing: 0.02em;
   text-transform: uppercase;
   text-align: center;
@@ -3880,7 +3893,7 @@ details-disclosure > details {
 
 /* "View all" link */
 .featured-collection .link--text {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-subheading-family);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -3903,9 +3916,9 @@ details-disclosure > details {
 
 /* Brand story — text column typography */
 .image-with-text__heading {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-heading-family);
   font-size: clamp(26px, 3vw, 38px);
-  font-weight: 600;
+  font-weight: var(--font-heading-weight);
   letter-spacing: 0.02em;
   line-height: 1.15;
   margin-bottom: 24px;
@@ -3913,7 +3926,7 @@ details-disclosure > details {
 }
 
 .image-with-text__content p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body-family);
   font-size: 16px;
   line-height: 1.75;
   color: rgb(26, 26, 26);
@@ -3938,9 +3951,9 @@ details-disclosure > details {
 /* Process strip — scoped to prevent leaking to category tiles multicolumn */
 #shopify-section-process-strip .multicolumn__title,
 #shopify-section-process-strip .title {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-heading-family);
   font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 600;
+  font-weight: var(--font-heading-weight);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgb(255, 255, 255);
@@ -3959,7 +3972,7 @@ details-disclosure > details {
 #shopify-section-process-strip .multicolumn-list__item::before {
   content: "0" counter(process-step);
   display: block;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-subheading-family);
   font-size: 40px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -3970,7 +3983,7 @@ details-disclosure > details {
 
 #shopify-section-process-strip .multicolumn-card__info h3,
 #shopify-section-process-strip .multicolumn-card__info .h3 {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-subheading-family);
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -3981,7 +3994,7 @@ details-disclosure > details {
 
 #shopify-section-process-strip .multicolumn-card__info p,
 #shopify-section-process-strip .multicolumn-card__info .rte {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body-family);
   font-size: 15px;
   line-height: 1.7;
   color: rgb(255, 255, 255);
@@ -3999,9 +4012,9 @@ details-disclosure > details {
 /* Newsletter — coral bg from color-scheme-5; force full-white text + gold CTA */
 .newsletter__wrapper h2,
 .newsletter__wrapper .h2 {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-heading-family);
   font-size: clamp(24px, 3vw, 36px);
-  font-weight: 600;
+  font-weight: var(--font-heading-weight);
   letter-spacing: 0.04em;
   color: rgb(255, 255, 255);
   margin-bottom: 12px;
@@ -4009,7 +4022,7 @@ details-disclosure > details {
 
 .newsletter__wrapper .newsletter__subheading,
 .newsletter__wrapper .newsletter__subheading p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body-family);
   font-size: 16px;
   color: rgb(255, 255, 255);
   opacity: 1;
@@ -4023,7 +4036,7 @@ details-disclosure > details {
   border: 2px solid rgb(255, 255, 255);
   background: transparent;
   color: rgb(255, 255, 255);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body-family);
   font-size: 15px;
 }
 
@@ -4040,7 +4053,7 @@ details-disclosure > details {
   background-color: rgb(255, 255, 255);
   color: rgb(26, 26, 26);
   border-color: rgb(255, 255, 255);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-subheading-family);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -4086,7 +4099,7 @@ details-disclosure > details {
 /* Size guide link — above variant picker on PDP per spec §5 */
 .product__size-guide-link {
   display: inline-block;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-subheading-family);
   font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -4107,9 +4120,9 @@ details-disclosure > details {
 }
 
 .size-guide__heading {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-heading-family);
   font-size: 2.8rem;
-  font-weight: 700;
+  font-weight: var(--font-heading-weight);
   margin: 0 0 1.6rem;
   color: rgb(var(--color-foreground));
 }
@@ -4123,7 +4136,7 @@ details-disclosure > details {
 .size-guide__table {
   width: 100%;
   border-collapse: collapse;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body-family);
   font-size: 1.4rem;
 }
 
@@ -4169,7 +4182,7 @@ details-disclosure > details {
 }
 
 .trust-badge {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-subheading-family);
   font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -4263,7 +4276,7 @@ details-disclosure > details {
   }
 
   .sticky-atc__title {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-subheading-family);
     font-size: 1.3rem;
     font-weight: 500;
     color: rgb(var(--color-background));
@@ -4274,7 +4287,7 @@ details-disclosure > details {
 
   .sticky-atc__price .price__regular .price-item,
   .sticky-atc__price .price__sale .price-item {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body-family);
     font-size: 1.3rem;
     font-weight: 600;
     color: rgb(var(--color-background));

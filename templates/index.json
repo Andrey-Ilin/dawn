@@ -67,7 +67,7 @@
             "title": "Summer Motion",
             "text": "",
             "link_label": "Explore",
-            "link": "/collections/summer-motion"
+            "link": "shopify://collections/summer-motion"
           }
         },
         "capsule-2": {
@@ -77,7 +77,7 @@
             "title": "Back To Street",
             "text": "",
             "link_label": "Explore",
-            "link": "/collections/back-to-street"
+            "link": "shopify://collections/back-to-street"
           }
         },
         "capsule-7": {
@@ -87,7 +87,7 @@
             "title": "Music Pulse",
             "text": "",
             "link_label": "Explore",
-            "link": "/collections/music-pulse"
+            "link": "shopify://collections/music-pulse"
           }
         }
       },

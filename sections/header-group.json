@@ -25,7 +25,7 @@
           "type": "announcement",
           "settings": {
             "text": "New Capsules Dropping Monthly",
-            "link": "/collections/all"
+            "link": "shopify://pages/capsules"
           }
         },
         "announcement-bar-2": {

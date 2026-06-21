@@ -4104,7 +4104,9 @@ html {
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.newsletter__wrapper .newsletter-form__button:hover {
+.newsletter__wrapper .newsletter-form__button:hover,
+.newsletter__wrapper .newsletter-form__button:focus,
+.newsletter__wrapper .newsletter-form__button:focus-visible {
   background-color: rgb(26, 26, 26);
   color: rgb(255, 255, 255);
   border-color: rgb(26, 26, 26);

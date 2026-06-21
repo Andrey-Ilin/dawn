@@ -101,7 +101,20 @@
             {%- endif -%}
             {%- if section.settings.discount_code != blank -%}
               <p class="newsletter-popup__code-label">{{ section.settings.discount_label | default: 'Your code' }}</p>
-              <div class="newsletter-popup__code" data-popup-code>{{ section.settings.discount_code }}</div>
+              <button
+                type="button"
+                class="newsletter-popup__code"
+                data-popup-copy
+                data-code="{{ section.settings.discount_code | escape }}"
+                data-copy-label="{{ section.settings.copy_label | default: 'Copy' | escape }}"
+                data-copied-label="{{ section.settings.copied_label | default: 'Copied!' | escape }}"
+                aria-label="{{ section.settings.copy_label | default: 'Copy' }} {{ section.settings.discount_code | escape }}"
+              >
+                <span class="newsletter-popup__code-value" data-popup-code>{{ section.settings.discount_code }}</span>
+                <span class="newsletter-popup__code-action" data-popup-copy-label>
+                  {{- section.settings.copy_label | default: 'Copy' -}}
+                </span>
+              </button>
             {%- endif -%}
           </div>
         {% endform %}
@@ -182,13 +195,13 @@
       "type": "inline_richtext",
       "id": "success_heading",
       "label": "Success heading",
-      "default": "You're in!"
+      "default": "You're in."
     },
     {
       "type": "richtext",
       "id": "success_body",
       "label": "Success body",
-      "default": "<p>Use this code at checkout for 10% off your first order.</p>"
+      "default": "<p>Enjoy 10% off your first order. Use this code at checkout:</p>"
     },
     {
       "type": "text",
@@ -200,7 +213,20 @@
       "type": "text",
       "id": "discount_code",
       "label": "Discount code",
-      "info": "Create the code in Shopify Discounts, then enter it here."
+      "info": "Create the code in Shopify Discounts, then enter it here.",
+      "default": "WELCOME10"
+    },
+    {
+      "type": "text",
+      "id": "copy_label",
+      "label": "Copy button label",
+      "default": "Copy"
+    },
+    {
+      "type": "text",
+      "id": "copied_label",
+      "label": "Copied confirmation label",
+      "default": "Copied!"
     }
   ]
 }

@@ -15,6 +15,12 @@ class NewsletterPopup extends HTMLElement {
       el.addEventListener('click', () => this.close())
     );
 
+    // Copy-to-clipboard for the discount code.
+    const copyButton = this.querySelector('[data-popup-copy]');
+    if (copyButton) {
+      copyButton.addEventListener('click', () => this.copyCode(copyButton));
+    }
+
     // Flag our own form submit so we can distinguish it from other customer forms on reload.
     const form = this.querySelector('form');
     if (form) {
@@ -91,6 +97,41 @@ class NewsletterPopup extends HTMLElement {
     const state = this.getState();
     if (!state.subscribed) this.setState({ dismissedAt: Date.now() });
     setTimeout(() => this.setAttribute('hidden', ''), 300);
+  }
+
+  copyCode(button) {
+    const code = button.dataset.code || '';
+    const labelEl = button.querySelector('[data-popup-copy-label]');
+    const done = () => {
+      button.classList.add('is-copied');
+      if (labelEl) labelEl.textContent = button.dataset.copiedLabel || 'Copied!';
+      clearTimeout(this.copyResetTimer);
+      this.copyResetTimer = setTimeout(() => {
+        button.classList.remove('is-copied');
+        if (labelEl) labelEl.textContent = button.dataset.copyLabel || 'Copy';
+      }, 2000);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done).catch(() => this.fallbackCopy(code, done));
+    } else {
+      this.fallbackCopy(code, done);
+    }
+  }
+
+  fallbackCopy(text, onSuccess) {
+    const area = document.createElement('textarea');
+    area.value = text;
+    area.setAttribute('readonly', '');
+    area.style.position = 'absolute';
+    area.style.left = '-9999px';
+    document.body.appendChild(area);
+    area.select();
+    try {
+      document.execCommand('copy');
+      onSuccess();
+    } catch (e) {}
+    document.body.removeChild(area);
   }
 
   onKeydown(event) {

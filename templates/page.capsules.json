@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page"
+    },
+    "capsule_collections": {
+      "type": "collection-list",
+      "blocks": {
+        "capsule-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "summer-motion"
+          }
+        },
+        "capsule-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "back-to-street"
+          }
+        },
+        "capsule-3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "music-pulse"
+          }
+        }
+      },
+      "block_order": ["capsule-1", "capsule-2", "capsule-3"],
+      "settings": {
+        "title": "",
+        "image_ratio": "portrait",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": ["main", "capsule_collections"]
+}

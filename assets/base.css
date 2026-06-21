@@ -3776,10 +3776,19 @@ html {
   }
 }
 
+/* Menu divider — rendered for menu items titled "---" (see header-dropdown-menu / header-drawer). */
+.header__submenu-divider,
+.menu-drawer__divider {
+  border: 0;
+  border-top: 1px solid rgba(var(--color-foreground), 0.12);
+  margin: 0.8rem 1.2rem;
+}
+
 /* Capsule tiles — square image, caption below, no overlay. */
 [id*="capsule_tiles"] .multicolumn-card {
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: relative;
   z-index: 0;
   cursor: pointer;
@@ -3793,7 +3802,8 @@ html {
 [id*="capsule_tiles"] .multicolumn-card__image-wrapper {
   position: relative;
   aspect-ratio: 1 / 1;
-  width: 80%;
+  width: 64%;
+  max-width: 240px;
   margin: 0 auto;
   border-radius: 4px;
   overflow: hidden;

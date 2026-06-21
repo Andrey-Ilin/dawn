@@ -32,8 +32,11 @@
                 tabindex="-1"
               >
                 {%- for childlink in link.links -%}
+                  {%- assign childlink_title = childlink.title | strip -%}
                   <li>
-                    {%- if childlink.links == blank -%}
+                    {%- if childlink_title == '-' or childlink_title == '--' or childlink_title == '---' or childlink_title == '—' or childlink_title == '–' -%}
+                      <hr class="header__submenu-divider" aria-hidden="true" role="presentation">
+                    {%- elsif childlink.links == blank -%}
                       <a
                         id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                         href="{{ childlink.url }}"

@@ -95,18 +95,9 @@
   margin-bottom: 2rem;
 }
 
-.newsletter-popup__field {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.newsletter-popup__field .field__input {
-  width: 100%;
-}
-
 .newsletter-popup__button {
   width: 100%;
+  margin-top: 1.2rem;
 }
 
 .newsletter-popup__message {

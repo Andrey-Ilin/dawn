@@ -73,10 +73,11 @@
                 required
               >
               <label class="field__label" for="NewsletterPopup-email">{{ 'newsletter.label' | t }}</label>
-              <button type="submit" class="newsletter-popup__button button" name="commit">
-                {{ section.settings.button_label | default: 'Subscribe' }}
-              </button>
             </div>
+
+            <button type="submit" class="newsletter-popup__button button" name="commit">
+              {{ section.settings.button_label | default: 'Subscribe' }}
+            </button>
 
             {%- if form.errors -%}
               <small class="newsletter-popup__message form__message" id="NewsletterPopup-error">

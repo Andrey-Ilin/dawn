@@ -149,7 +149,9 @@
           "success_heading": "You're in!",
           "success_body": "<p>Use this code at checkout for 10% off your first order.</p>",
           "discount_label": "Your code",
-          "discount_code": ""
+          "discount_code": "WELCOME10",
+          "copy_label": "Copy",
+          "copied_label": "Copied!"
         }
       }
     },

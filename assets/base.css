@@ -3873,10 +3873,16 @@ html {
 }
 
 .card__media {
-  aspect-ratio: 4 / 5;
   border-radius: 4px;
   overflow: hidden;
   background-color: rgb(255, 255, 255);
+}
+
+/* Force all product cards to a uniform 4:5 image box, independent of each
+   section's image_ratio setting. Overrides Dawn's per-image --ratio-percent so the
+   absolutely-positioned media never overflows onto the card title/price below it. */
+.product-card-wrapper .card__inner.ratio::before {
+  padding-bottom: 125%; /* 5 / 4 */
 }
 
 .card__media img {

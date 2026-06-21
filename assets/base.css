@@ -4092,7 +4092,13 @@ html {
   outline: none;
 }
 
-.newsletter__wrapper .newsletter-form__button {
+/* Coral arrow button. The extra :not(:focus-visible):not(.focused) selector raises
+   specificity to (0,4,0) so it beats Dawn's component-newsletter.css rule
+   `.newsletter-form__button:not(:focus-visible):not(.focused){background-color:inherit}`
+   (0,3,0), which otherwise makes the button transparent → white arrow on the light
+   focused input (invisible). */
+.newsletter__wrapper .newsletter-form__button,
+.newsletter__wrapper .newsletter-form__button:not(:focus-visible):not(.focused) {
   background-color: rgb(245, 108, 108);
   color: rgb(255, 255, 255);
   border-color: rgb(245, 108, 108);
@@ -4104,7 +4110,7 @@ html {
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.newsletter__wrapper .newsletter-form__button:hover,
+.newsletter__wrapper .newsletter-form__button:hover:not(.focused),
 .newsletter__wrapper .newsletter-form__button:focus,
 .newsletter__wrapper .newsletter-form__button:focus-visible {
   background-color: rgb(26, 26, 26);

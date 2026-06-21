@@ -102,7 +102,7 @@
         "image_width": "full",
         "image_ratio": "square",
         "button_label": "View All Capsules",
-        "button_link": "shopify://collections",
+        "button_link": "shopify://pages/capsules",
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "none",

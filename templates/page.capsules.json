@@ -1,7 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
-      "type": "main-page"
+      "type": "main-page",
+      "settings": {}
     },
     "capsule_collections": {
       "type": "collection-list",
@@ -25,7 +35,11 @@
           }
         }
       },
-      "block_order": ["capsule-1", "capsule-2", "capsule-3"],
+      "block_order": [
+        "capsule-1",
+        "capsule-2",
+        "capsule-3"
+      ],
       "settings": {
         "title": "",
         "image_ratio": "portrait",
@@ -38,5 +52,8 @@
       }
     }
   },
-  "order": ["main", "capsule_collections"]
+  "order": [
+    "main",
+    "capsule_collections"
+  ]
 }

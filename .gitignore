@@ -13,6 +13,8 @@ CLAUDE.md
 SPEC.MD
 settings_data_swaysculpt_old.json
 settings_schema_swaysculpt_old.json
+TASKS.md
+ADMIN_TASKS.md
 
 # Playwright session artifacts and ad-hoc screenshots
 .playwright-mcp/

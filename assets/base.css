@@ -3784,7 +3784,7 @@ html {
   margin: 0.8rem 1.2rem;
 }
 
-/* Capsule tiles — square image, caption below, no overlay. */
+/* Capsule tiles — circular image, caption below, no overlay. */
 [id*="capsule_tiles"] .multicolumn-card {
   display: flex;
   flex-direction: column;

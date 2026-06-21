@@ -1,0 +1,206 @@
+{%- unless section.settings.enable -%}
+  {%- comment -%}Popup disabled — render nothing.{%- endcomment -%}
+{%- else -%}
+  {{ 'component-newsletter-popup.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'newsletter-popup.js' | asset_url }}" defer="defer"></script>
+
+  <newsletter-popup
+    class="newsletter-popup"
+    data-delay="{{ section.settings.delay_seconds }}"
+    data-suppress-days="{{ section.settings.suppress_days }}"
+    hidden
+  >
+    <div class="newsletter-popup__overlay" data-popup-overlay></div>
+
+    <div
+      class="newsletter-popup__dialog color-{{ section.settings.color_scheme }} gradient"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="NewsletterPopup-heading"
+      tabindex="-1"
+    >
+      <button
+        type="button"
+        class="newsletter-popup__close"
+        data-popup-close
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        {{- 'icon-close.svg' | inline_asset_content -}}
+      </button>
+
+      {%- if section.settings.image != blank -%}
+        <div class="newsletter-popup__media">
+          {{
+            section.settings.image
+            | image_url: width: 600
+            | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 280px, 100vw', widths: '300, 480, 600'
+          }}
+        </div>
+      {%- endif -%}
+
+      <div class="newsletter-popup__content">
+        {% form 'customer', class: 'newsletter-popup__form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter,popup">
+
+          {%- comment -%}Default (signup) state — hidden once posted successfully.{%- endcomment -%}
+          <div class="newsletter-popup__signup" {% if form.posted_successfully? %}hidden{% endif %}>
+            {%- if section.settings.heading != blank -%}
+              <h2 id="NewsletterPopup-heading" class="newsletter-popup__heading">
+                {{ section.settings.heading }}
+              </h2>
+            {%- endif -%}
+
+            {%- if section.settings.body != blank -%}
+              <div class="newsletter-popup__body rte">{{ section.settings.body }}</div>
+            {%- endif -%}
+
+            <div class="newsletter-popup__field field">
+              <input
+                id="NewsletterPopup-email"
+                type="email"
+                name="contact[email]"
+                class="field__input"
+                value="{{ form.email }}"
+                aria-required="true"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="email"
+                {% if form.errors %}
+                  aria-invalid="true"
+                  aria-describedby="NewsletterPopup-error"
+                {% endif %}
+                placeholder="{{ 'newsletter.label' | t }}"
+                required
+              >
+              <label class="field__label" for="NewsletterPopup-email">{{ 'newsletter.label' | t }}</label>
+              <button type="submit" class="newsletter-popup__button button" name="commit">
+                {{ section.settings.button_label | default: 'Subscribe' }}
+              </button>
+            </div>
+
+            {%- if form.errors -%}
+              <small class="newsletter-popup__message form__message" id="NewsletterPopup-error">
+                <span class="svg-wrapper">{{- 'icon-error.svg' | inline_asset_content -}}</span>
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </small>
+            {%- endif -%}
+          </div>
+
+          {%- comment -%}Success state — revealed after a successful subscribe.{%- endcomment -%}
+          <div class="newsletter-popup__success" {% unless form.posted_successfully? %}hidden{% endunless %} data-popup-success>
+            <span class="newsletter-popup__success-icon svg-wrapper">
+              {{- 'icon-success.svg' | inline_asset_content -}}
+            </span>
+            {%- if section.settings.success_heading != blank -%}
+              <h2 class="newsletter-popup__heading">{{ section.settings.success_heading }}</h2>
+            {%- endif -%}
+            {%- if section.settings.success_body != blank -%}
+              <div class="newsletter-popup__body rte">{{ section.settings.success_body }}</div>
+            {%- endif -%}
+            {%- if section.settings.discount_code != blank -%}
+              <p class="newsletter-popup__code-label">{{ section.settings.discount_label | default: 'Your code' }}</p>
+              <div class="newsletter-popup__code" data-popup-code>{{ section.settings.discount_code }}</div>
+            {%- endif -%}
+          </div>
+        {% endform %}
+      </div>
+    </div>
+  </newsletter-popup>
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "Newsletter popup",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Enable popup",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "delay_seconds",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "s",
+      "label": "Delay before showing",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "suppress_days",
+      "min": 1,
+      "max": 90,
+      "step": 1,
+      "unit": "d",
+      "label": "Days to hide after dismiss",
+      "info": "Subscribers never see it again, regardless of this value.",
+      "default": 30
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image (optional)"
+    },
+    {
+      "type": "header",
+      "content": "Signup state"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get 10% off your first order"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Join the list for early access to new drops and exclusive releases.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Subscribe"
+    },
+    {
+      "type": "header",
+      "content": "Success state"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "success_heading",
+      "label": "Success heading",
+      "default": "You're in!"
+    },
+    {
+      "type": "richtext",
+      "id": "success_body",
+      "label": "Success body",
+      "default": "<p>Use this code at checkout for 10% off your first order.</p>"
+    },
+    {
+      "type": "text",
+      "id": "discount_label",
+      "label": "Code label",
+      "default": "Your code"
+    },
+    {
+      "type": "text",
+      "id": "discount_code",
+      "label": "Discount code",
+      "info": "Create the code in Shopify Discounts, then enter it here."
+    }
+  ]
+}
+{% endschema %}

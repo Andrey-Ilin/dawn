@@ -57,6 +57,33 @@
         "show_text_below": false
       }
     },
+    "featured_product": {
+      "type": "featured-product",
+      "blocks": {
+        "title": { "type": "title", "settings": {} },
+        "price": { "type": "price", "settings": {} },
+        "variant_picker": { "type": "variant_picker", "settings": { "picker_type": "button" } },
+        "quantity_selector": { "type": "quantity_selector", "settings": {} },
+        "buy_buttons": { "type": "buy_buttons", "settings": { "show_dynamic_checkout": true } }
+      },
+      "block_order": ["title", "price", "variant_picker", "quantity_selector", "buy_buttons"],
+      "settings": {
+        "product": "",
+        "color_scheme": "scheme-1",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
     "capsule_tiles": {
       "type": "multicolumn",
       "blocks": {
@@ -222,6 +249,50 @@
         "padding_bottom": 80
       }
     },
+    "trust_content": {
+      "type": "collapsible-content",
+      "blocks": {
+        "shipping": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Shipping",
+            "icon": "truck",
+            "row_content": "<p>Orders ship within 5–10 business days. You'll get a tracking link by email as soon as your order is on its way.</p>"
+          }
+        },
+        "returns": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Returns & Exchanges",
+            "icon": "return",
+            "row_content": "<p>Not the right fit? Reach out within 30 days of delivery and we'll help with a return or exchange.</p>"
+          }
+        },
+        "sizing": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Sizing",
+            "icon": "ruler",
+            "row_content": "<p>Each product page includes a size chart. Between sizes? We recommend sizing up for a relaxed fit.</p>"
+          }
+        }
+      },
+      "block_order": ["shipping", "returns", "sizing"],
+      "settings": {
+        "caption": "",
+        "heading": "Good to know",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
     "newsletter": {
       "type": "newsletter",
       "blocks": {
@@ -258,10 +329,12 @@
   },
   "order": [
     "image_banner",
+    "featured_product",
     "capsule_tiles",
     "featured_collection",
     "process_strip",
     "city_series",
+    "trust_content",
     "newsletter"
   ]
 }

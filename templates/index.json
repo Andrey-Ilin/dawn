@@ -67,7 +67,7 @@
             "title": "Summer Motion",
             "text": "",
             "link_label": "Explore",
-            "link": "/collections/summer-motions"
+            "link": "/collections/summer-motion"
           }
         },
         "capsule-2": {
@@ -80,46 +80,6 @@
             "link": "/collections/back-to-street"
           }
         },
-        "capsule-3": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/art_in_motion.png",
-            "title": "Art In Motion",
-            "text": "",
-            "link_label": "Explore",
-            "link": "/collections/art-in-motion"
-          }
-        },
-        "capsule-4": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/urban_shadows.png",
-            "title": "Urban Shadows",
-            "text": "",
-            "link_label": "Explore",
-            "link": "/collections/urban-shadows"
-          }
-        },
-        "capsule-5": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/warm_layers.png",
-            "title": "Warm Layers",
-            "text": "",
-            "link_label": "Explore",
-            "link": "/collections/warm-layers"
-          }
-        },
-        "capsule-6": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/retro_winter.png",
-            "title": "Retro Winter",
-            "text": "",
-            "link_label": "Explore",
-            "link": "/collections/retro-winter"
-          }
-        },
         "capsule-7": {
           "type": "column",
           "settings": {
@@ -129,27 +89,12 @@
             "link_label": "Explore",
             "link": "/collections/music-pulse"
           }
-        },
-        "capsule-8": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/retro_revival.png",
-            "title": "Retro Revival",
-            "text": "",
-            "link_label": "Explore",
-            "link": "/collections/retro-revival"
-          }
         }
       },
       "block_order": [
         "capsule-1",
         "capsule-2",
-        "capsule-3",
-        "capsule-4",
-        "capsule-5",
-        "capsule-6",
-        "capsule-7",
-        "capsule-8"
+        "capsule-7"
       ],
       "settings": {
         "title": "EXPLORE OUR CAPSULES",
@@ -158,7 +103,7 @@
         "image_ratio": "square",
         "button_label": "View All Capsules",
         "button_link": "shopify://collections",
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "none",
         "color_scheme": "scheme-2",

@@ -88,20 +88,22 @@ auto-convert `.:`).
 
 ## 4. Material / Care is automatic — set the product type
 
-The PDP **Material / Care** accordion is rendered from the product's **Type**, not the
-description. Set the type correctly: it drives both the type-based collection and the
-Material/Care content.
+The PDP **Material / Care** accordion is rendered from the product's **`type:*` tag**,
+not the description (Printify can set tags but not Shopify's Product type field). The
+same tag drives the category collection.
 
-| Product Type | Collection | Material / Care shown |
+| `type:*` tag | Collection | Material / Care shown |
 |--------------|------------|-----------------------|
-| `t-shirts` (or `T-Shirt`) | T-shirts | Cotton tee material + care + certifications |
-| `Hoodie` / `Sweatshirt` | Hoodies & Sweatshirts | Fleece blend material + care |
-| `Socks` | Socks | Sock blend material + care |
-| `Bag` | Backpacks & Bags | Bag material + care |
-| anything else | — | Generic care fallback |
+| `type:t-shirt` | T-shirts | Cotton tee material + care + certifications |
+| `type:hoodie` / `type:sweatshirt` | Hoodies & Sweatshirts | Fleece blend material + care |
+| `type:socks` | Socks | Sock blend material + care |
+| `type:bag` | Backpacks & Bags | Bag material + care |
+| none | — | Generic care fallback |
 
-Matching is case-insensitive and tolerates plurals/synonyms (e.g. `tee`, `t-shirts`,
-`backpack`). To adjust the copy, edit `snippets/product-material-care.liquid`.
+Matching is case-insensitive and tolerates synonyms. If no `type:*` tag is present it
+falls back to the native Product type field, then to a generic care block. To adjust
+the copy, edit `snippets/product-material-care.liquid`. See
+[product-tags-and-type.md](product-tags-and-type.md) for the full tag list.
 
 ---
 
@@ -131,9 +133,10 @@ Matching is case-insensitive and tolerates plurals/synonyms (e.g. `tee`, `t-shir
 </table>
 ```
 
-Set **Type = `t-shirts`**. The storefront then shows: the intro + spec list, a Size
-guide link opening the Inches/cm modal, and the tee Material / Care accordion — with no
-supplier or print-on-demand wording anywhere.
+Add the tag **`type:t-shirt`** (plus `theme:*`, `gender:*`, optional `capsule:*`). The
+storefront then shows: the intro + spec list, a Size guide link opening the Inches/cm
+modal, and the tee Material / Care accordion — with no supplier or print-on-demand
+wording anywhere.
 
 ---
 
@@ -144,5 +147,5 @@ supplier or print-on-demand wording anywhere.
 - [ ] `<table id="size-guide">` present, **in inches**, header = sizes, first column
       labels end in `in`.
 - [ ] No care/material/washing block in the description.
-- [ ] Product **Type** set to one of: `t-shirts`, `Hoodie`, `Sweatshirt`, `Socks`,
-      `Bag`.
+- [ ] One **`type:*` tag** set: `type:t-shirt`, `type:hoodie`, `type:sweatshirt`,
+      `type:socks`, or `type:bag` (drives the category collection + Material/Care).

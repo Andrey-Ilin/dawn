@@ -1,13 +1,26 @@
 {%- comment -%}
-  Material / Care accordion. Content is keyed to the product's category via
-  product.type (which also drives the type-based collections: T-shirts,
-  Hoodies & Sweatshirts, Socks, Backpacks & Bags). Matching is normalized
-  (downcased + synonyms) so it is resilient to type casing/pluralization.
+  Material / Care accordion. Content is keyed to the product's category via the
+  `type:*` tag (e.g. type:hoodie) — the same tag that drives the category
+  collections — because Printify can set tags but not Shopify's Product type field.
+  Falls back to product.type if no tag is present. Matching is normalized
+  (downcased + synonyms) so it is resilient to casing/pluralization.
 
-  Accepts: product_type
+  Accepts: product
 {%- endcomment -%}
 
-{%- assign type = product_type | downcase | strip -%}
+{%- liquid
+  assign type = ''
+  for tag in product.tags
+    assign t = tag | downcase
+    if t contains 'type:'
+      assign type = t | remove: 'type:' | strip
+      break
+    endif
+  endfor
+  if type == blank
+    assign type = product.type | downcase | strip
+  endif
+-%}
 
 <div class="product__accordion accordion">
   <details>

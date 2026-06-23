@@ -15,6 +15,7 @@
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+  {{ 'component-size-guide.css' | asset_url | stylesheet_tag }}
 
   {% unless product.has_only_default_variant %}
     {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
@@ -209,6 +210,8 @@
                 </p>
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
+              {%- when 'size_guide' -%}
+                {% render 'size-guide', block: block %}
               {%- when 'collapsible_tab' -%}
                 <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
                   <details id="Details-{{ block.id }}-{{ section.id }}">
@@ -1256,6 +1259,47 @@
           "id": "page",
           "type": "page",
           "label": "t:sections.main-product.blocks.popup.settings.page.label"
+        }
+      ]
+    },
+    {
+      "type": "size_guide",
+      "name": "Size guide",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Shows a 'Size guide' link that opens a modal with Inches and cm tabs. Requires the product description to contain a <table id=\"size-guide\"> in inches."
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "default": "Size guide",
+          "label": "Link text"
+        },
+        {
+          "type": "text",
+          "id": "inches_label",
+          "default": "Inches",
+          "label": "Inches tab label"
+        },
+        {
+          "type": "text",
+          "id": "cm_label",
+          "default": "Centimeters",
+          "label": "Centimeters tab label"
+        },
+        {
+          "type": "text",
+          "id": "measure_title",
+          "default": "How to measure",
+          "label": "How to measure heading"
+        },
+        {
+          "type": "richtext",
+          "id": "how_to_measure",
+          "default": "<p>Lay a similar garment flat. Measure width across the chest under the arms. Measure length from the highest point of the shoulder to the bottom hem. Compare to the table above for the best fit.</p>",
+          "label": "How to measure note"
         }
       ]
     },

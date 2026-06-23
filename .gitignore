@@ -18,4 +18,5 @@ ADMIN_TASKS.md
 
 # Playwright session artifacts and ad-hoc screenshots
 .playwright-mcp/
-/*.png
+/*.
+sc_test

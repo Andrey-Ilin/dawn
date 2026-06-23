@@ -1,0 +1,68 @@
+{%- comment -%}
+  Per-product size guide modal.
+
+  Only renders when the product description contains the source inches table
+  (`<table id="size-guide">`). The inches table is hidden in the description via
+  CSS; `size-guide.js` clones it into the Inches tab and generates the cm tab.
+
+  The <modal-dialog> is a sibling of <size-guide-modal> on purpose: Dawn's
+  ModalDialog relocates itself to <body> on connect, so it must not be nested.
+
+  Accepts: block
+{%- endcomment -%}
+
+{%- if product.description contains 'id="size-guide"' -%}
+  <script src="{{ 'size-guide.js' | asset_url }}" defer="defer"></script>
+
+  {%- assign sg_label = block.settings.link_text | default: 'Size guide' -%}
+
+  <size-guide-modal class="quick-add-hidden" data-modal="#SizeGuideModal-{{ block.id }}" {{ block.shopify_attributes }}>
+    <modal-opener class="size-guide-modal__opener" data-modal="#SizeGuideModal-{{ block.id }}">
+      <button class="product__size-guide-link" type="button" aria-haspopup="dialog">
+        {{- sg_label | escape -}}
+      </button>
+    </modal-opener>
+  </size-guide-modal>
+
+  <modal-dialog id="SizeGuideModal-{{ block.id }}" class="product-popup-modal size-guide-modal__dialog">
+    <div
+      role="dialog"
+      aria-label="{{ sg_label | escape }}"
+      aria-modal="true"
+      class="product-popup-modal__content"
+      tabindex="-1"
+    >
+      <button
+        id="ModalClose-{{ block.id }}"
+        type="button"
+        class="product-popup-modal__toggle"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        {{- 'icon-close.svg' | inline_asset_content -}}
+      </button>
+
+      <div class="product-popup-modal__content-info size-guide-modal__body">
+        <h2 class="h3 size-guide-modal__heading">{{ sg_label | escape }}</h2>
+
+        <div class="size-guide-modal__tabs" role="tablist" aria-label="{{ sg_label | escape }}">
+          <button class="size-guide-modal__tab" role="tab" type="button" data-unit="in" aria-selected="true">
+            {{- block.settings.inches_label | default: 'Inches' | escape -}}
+          </button>
+          <button class="size-guide-modal__tab" role="tab" type="button" data-unit="cm" aria-selected="false">
+            {{- block.settings.cm_label | default: 'Centimeters' | escape -}}
+          </button>
+        </div>
+
+        <div class="size-guide-modal__panel" data-unit="in" role="tabpanel"></div>
+        <div class="size-guide-modal__panel" data-unit="cm" role="tabpanel" hidden></div>
+
+        {%- if block.settings.how_to_measure != blank -%}
+          <div class="size-guide-modal__measure">
+            <h3 class="size-guide-modal__measure-title">{{ block.settings.measure_title | default: 'How to measure' | escape }}</h3>
+            <div class="rte">{{ block.settings.how_to_measure }}</div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </modal-dialog>
+{%- endif -%}

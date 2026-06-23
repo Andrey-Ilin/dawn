@@ -28,9 +28,12 @@
           "settings": {}
         },
         "size_guide_link": {
-          "type": "custom_liquid",
+          "type": "size_guide",
           "settings": {
-            "custom_liquid": "{%- assign size_guide = pages['size-guide'] -%}{% if size_guide.url != blank %}<a href=\"{{ size_guide.url }}\" class=\"product__size-guide-link\">Size guide</a>{% endif %}"
+            "link_text": "Size guide",
+            "inches_label": "Inches",
+            "cm_label": "Centimeters",
+            "how_to_measure": "<p>Lay a similar garment flat. Measure width across the chest under the arms. Measure length from the highest point of the shoulder to the bottom hem. Compare to the table above for the best fit.</p>"
           }
         },
         "variant_picker": {

@@ -1,3 +1,14 @@
+{%- comment -%}
+  Material / Care accordion. Content is keyed to the product's category via
+  product.type (which also drives the type-based collections: T-shirts,
+  Hoodies & Sweatshirts, Socks, Backpacks & Bags). Matching is normalized
+  (downcased + synonyms) so it is resilient to type casing/pluralization.
+
+  Accepts: product_type
+{%- endcomment -%}
+
+{%- assign type = product_type | downcase | strip -%}
+
 <div class="product__accordion accordion">
   <details>
     <summary>
@@ -8,66 +19,67 @@
       {{- 'icon-caret.svg' | inline_asset_content -}}
     </summary>
     <div class="accordion__content rte">
-      {%- case product_type -%}
-        {%- when 'T-Shirt', 'T-Shirts' -%}
+      {%- case type -%}
+        {%- when 't-shirt', 't-shirts', 'tee', 'tees', 't shirt' -%}
           <p><strong>Material</strong></p>
           <ul>
-            <li>Solids: 100% US cotton (5.3 oz/yd²)</li>
+            <li>Solids: 100% ring-spun cotton</li>
             <li>Heathers: 50% cotton, 50% polyester</li>
             <li>Twill tape at shoulders, ribbed knit collar</li>
-            <li>Tear-away labels for comfort</li>
+            <li>Sewn-in or tear-away labels for comfort</li>
             <li>No side seams (tubular knit)</li>
           </ul>
           <p><strong>Care</strong></p>
           <ul>
-            <li>Machine wash warm (max 40°C)</li>
+            <li>Machine wash warm (max 40°C), inside out</li>
             <li>Tumble dry medium heat</li>
-            <li>Iron low heat — do not iron directly on print</li>
-            <li>Non-chlorine bleach as needed</li>
+            <li>Iron inside out on low heat</li>
+            <li>Non-chlorine bleach only as needed</li>
             <li>Do not dry clean</li>
           </ul>
           <p><strong>Certifications:</strong> US Cotton Trust Protocol, OEKO-TEX Standard 100, REACH</p>
 
-        {%- when 'Hoodie', 'Hoodies', 'Sweatshirt', 'Sweatshirts' -%}
+        {%- when 'hoodie', 'hoodies', 'sweatshirt', 'sweatshirts' -%}
           <p><strong>Material</strong></p>
           <ul>
-            <li>80% ring-spun cotton, 20% polyester</li>
+            <li>Ring-spun cotton / polyester blend</li>
             <li>Brushed fleece interior</li>
-            <li>Double-lined hood, metal eyelets</li>
+            <li>Double-lined hood, metal eyelets (hoodies)</li>
           </ul>
           <p><strong>Care</strong></p>
           <ul>
             <li>Machine wash cold, inside out</li>
             <li>Tumble dry low</li>
-            <li>Do not iron directly on print</li>
+            <li>Iron inside out on low heat</li>
             <li>Do not bleach or dry clean</li>
           </ul>
+          <p><strong>Certifications:</strong> OEKO-TEX Standard 100, REACH</p>
 
-        {%- when 'Socks' -%}
+        {%- when 'socks', 'sock' -%}
           <p><strong>Material</strong></p>
           <ul>
-            <li>60% nylon, 22% cotton, 18% spandex</li>
+            <li>Polyester / cotton / spandex blend</li>
             <li>Cushioned sole, reinforced heel and toe</li>
           </ul>
           <p><strong>Care</strong></p>
           <ul>
             <li>Machine wash cold</li>
             <li>Tumble dry low</li>
-            <li>Do not bleach</li>
+            <li>Do not bleach or iron</li>
           </ul>
 
-        {%- when 'Hat', 'Hats', 'Cap', 'Caps' -%}
+        {%- when 'bag', 'bags', 'backpack', 'backpacks', 'tote', 'tote bag' -%}
           <p><strong>Material</strong></p>
           <ul>
-            <li>100% polyester foam front</li>
-            <li>Mesh back panels</li>
-            <li>Adjustable snap closure</li>
+            <li>Durable water-resistant polyester shell</li>
+            <li>Reinforced stitching and straps</li>
+            <li>Lined interior with secure closure</li>
           </ul>
           <p><strong>Care</strong></p>
           <ul>
-            <li>Spot clean only</li>
-            <li>Do not machine wash</li>
-            <li>Air dry</li>
+            <li>Wipe clean with a damp cloth</li>
+            <li>Air dry fully before storing</li>
+            <li>Do not machine wash, tumble dry, or iron</li>
           </ul>
 
         {%- else -%}
@@ -75,7 +87,7 @@
           <ul>
             <li>Machine wash cold, inside out</li>
             <li>Tumble dry low</li>
-            <li>Do not iron directly on print</li>
+            <li>Iron inside out on low heat</li>
             <li>Do not bleach</li>
           </ul>
       {%- endcase -%}
